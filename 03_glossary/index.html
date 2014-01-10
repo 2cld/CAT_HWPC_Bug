@@ -1,0 +1,35 @@
+03_glossary/index.html
+
+<h1>HWPC Bug Ticket Tracking Glossary</h1>
+<dl>HWPC Bug Ticket Tracking llsBinder Tree Structure
+  <dt><hr/>00_index</dt><dd>index and inbox.  This is where things really start from the single index.html in 00_index (00_index/index.html).  When I start things I just start writing into a timeline and let that timeline fill in the template structure outlined here.  Yes, LOTS OF REFACTORING... Manual at first then as patterns emerge we can structure code to assist, but it's the use pattern and 're-use' of that pattern I think is key.</dd>
+  <dt><hr/>01_document</dt><dd>This will be the what most people concider a documentation.  This is the 'shinny edit version' intended as the published document (html or pdf).</dd>
+  <dt><hr/>02_references</dt><dd>This contains 'the local cache' of information used to build this document.  The intent is to eventually create not only a local cache, but back-linking for various purposes such as disaster recovery.</dd>
+  <dt><hr/>03_glossary</dt><dd>The intention is to create all the semantics for this document.  This should link into a 'global schema' and define it's 'domain' in a sematically consistanct way</dd>
+  <dt><hr/>04_history</dt><dd>The historical prospective... thinking both timeline and archieve type lense.</dd>
+  <dt><hr/>05_process</dt><dd>The HOW - Process used in this llsBinder.  This should be like a operational charter.  Currently it's combination of Extream Programing (XP) and SCRUM.</dd>
+  <dt><hr/>06_contribution</dt><dd>The contact list of contributions</dd>
+  <dt><hr/>07_disscussion</dt><dd>Where disscussion data lives.</dd>
+  <dt><hr/>08_distribution</dt><dd>Authenticated derivitive document locations.  Eventually this ties into the disaster recovery, useage and learning</dd>
+  <dt><hr/>09_cat</dt><dd>Code source (compile) and Test.  Many times this may be a soft-link to another location, but this is typically what a git clone will pull down.</dd>
+</dl>
+<hr/><hr/>
+<dl>Glossary items
+  <dt>w5charter</dt><dd>The project charter What, When, Where, Who and Why (why is the verb typically)</dd>
+  <dt>Contact</dt><dd>Thing>Person - <a href="http://schema.org/Person">http://schema.org/Person</a></dd>
+  <dt>Task</dt><dd>Thing>Action>OrganizeAction>PlanAction>ScheduleAction - <a href="http://schema.org/ScheduleAction">http://schema.org/ScheduleAction</a></dd>
+  <dt>File</dt><dd>Thing>??</dd>
+  <dt>Form</dt><dd>Thing>CreativeWork>WebPageElement - <a href="http://schema.org/WebPageElement">http://schema.org/WebPageElement</a></dd>
+  <dt>Map</dt><dd>Thing>CreativeWork>Map - <a href="http://schema.org/Map">http://schema.org/Map</a></dd>
+  <dt>Template</dt><dd>GlossaryItemTemplate</dd>
+</dl>
+<hr/><hr/><hr/>
+<ol>Need to put in:
+  <li class="llstodo" >Some Milestone - Goal: Some Goal - Status: TODO</li>
+  <li class="llsplan" >Some Milestone - Goal: Some Goal - Status: PLAN</li>
+  <li class="llsawip" >Some Milestone - Goal: Some Achievable Work In Progress Goal - Status: AWIP</li>
+  <li class="llshold" >Some Milestone - Goal: Some AWIP Goal that was not achieved due to an issue and now in HOLD pending another action - Status: HOLD</li>
+  <li class="llsfail" >Some Milestone - Goal: Some Goal not Achieved - Status: FAIL</li>
+  <li class="llsdone" >Some Milestone - Goal: Some Goal now Achieved - Status: DONE</li>
+  <li class="llspost" >Some Milestone - Goal: Some Goal that has been through Post Mordem review.  This is the final state for all - Status: POST</li>
+</ol>

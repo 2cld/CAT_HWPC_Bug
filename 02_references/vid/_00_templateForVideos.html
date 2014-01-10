@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Template for Media Index</title>
+  <!-- Chang URLs to wherever Video.js files will be hosted -->
+  <link href="video-js/video-js.css" rel="stylesheet" type="text/css">
+  <link href="video-js/video-speed.css" rel="stylesheet" type="text/css">
+  <!-- video.js must be in the <head> for older IEs to work. -->
+  <script src="video-js/video.js"></script>
+  <script src="video-js/video-speed.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/pure.js"></script>
+  <!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
+  <script>
+    _V_.options.flash.swf = "video-js.swf";
+  </script>
+<script>
+
+/*
+function myvideoseek(seektime, videoobject) {
+  _V_(videoobject).pause().currentTime(seektime).play();
+}
+*/
+function myvideoseek(min, sec) {
+  var seektime = min * 60 + sec;
+  // alert('seek: '+seektime)
+  _V_('example_video_1').pause().currentTime(seektime).play();
+}
+function go2screencast(go2page) {
+ popupWin = window.open('_00_CAT201311101054CST_ProjectVideoTest_'+go2page+'.html',
+ 'open_window',
+ 'menubar, toolbar, location, directories, status, scrollbars, resizable, dependent, width=640, height=480, left=0, top=0')
+}
+</script>
+
+</head>
+<body>
+<div class="CAT_testpurejs"><a></a></div>
+<hr/>
+<div class="CAT_VideoDisplay">
+  <h3 class='cat_vtitle'></h3>
+  <span class='cat_vdate'></span>
+  <a class="cat_directlink"></a>
+  <video 
+      id="example_video_1" 
+      class="video-js vjs-default-skin"
+      controls preload="auto" width="640" height="264"
+      poster="../img/leaf-02.jpg"
+      data-setup='{"example_option":true}'>
+    <source type='video/mp4' />
+    <!--
+    <source src="" type='video/webm' />
+    <source src="" type='video/ogg' />
+    <track kind="captions" src="captions.vtt" srclang="en" label="English" />
+    -->
+  </video>
+</div>
+
+  <ol><hr/><li><button type="button" onclick="javascript:myvideoseek(0,0);">001 TC00:00</button> 
+    Test Video Media Template.  <a href="" target="_blank"></a>
+    <ol><hr/>
+      <li><button type="button" onclick="javascript:myvideoseek(0,2);">
+        001 TC00:02</button> 
+        Test Time Index at TC00:02
+      </li>
+      <li><button type="button" onclick="javascript:myvideoseek(0,13);">
+        001 TC00:13</button> 
+        Test Time Index at TC00:13
+      </li>      
+      <li><button type="button" onclick="javascript:myvideoseek(0,23);">
+        001 TC00:23</button> 
+        Test Time Index at TC00:23
+      </li>
+    </ol>
+  </li>
+  <li><hr/><button type="button" onclick="javascript:myvideoseek(0,0);">001 TC00:00</button> 
+    Test Video Media Template.  <a href="" target="_blank"></a>
+    <ol><hr/>
+      <li><button type="button" onclick="javascript:myvideoseek(0,2);">
+        001 TC00:02</button> 
+        Test Time Index at TC00:02
+      </li>
+      <li><button type="button" onclick="javascript:myvideoseek(0,13);">
+        001 TC00:13</button> 
+        Test Time Index at TC00:13
+      </li>      
+      <li><button type="button" onclick="javascript:myvideoseek(0,23);">
+        001 TC00:23</button> 
+        Test Time Index at TC00:23
+      </li>
+    </ol>
+  </ol>
+
+    <script>
+      var jsonData = {
+        who: 'home',
+        site: 'index.html'
+      },
+      catxp_project_media_v001 = {
+        cat_vtitle: 'Project Video Title',
+        cat_vdate: 'DATE: 2013-11-10  ',
+        cat_vdirectlink: '_00_CAT201311101054CST_ProjectVideoTest_001.mp4',
+      },
+      //template commands
+      directive = { 'a':'who', 'a@href':'site' },
+      catLoadVideoInfo = { 
+        'h3.cat_vtitle':'cat_vtitle', 
+        'span.cat_vdate':'cat_vdate',
+        'a.cat_directlink@href' : 'cat_vdirectlink',
+        'a.cat_directlink' : 'Video Direct Link',
+        'source@src' : 'cat_vdirectlink'
+         };
+      //select the template and transform it
+      $('div.CAT_testpurejs').render(jsonData, directive);
+      $('div.CAT_VideoDisplay').render(catxp_project_media_v001, catLoadVideoInfo);
+    </script>
+</body>
+</html>

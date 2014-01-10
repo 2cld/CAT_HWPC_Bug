@@ -1,0 +1,42 @@
+/* Color the Status class types */
+.llspost { color:gray; }
+.llsdone { color:green; }
+.llsfail { color:red; }
+.llshold { color:orange; }
+.llsawip { color:blue; }
+.llsplan { color:black; }
+.llstodo { color:black; }
+/* Scrum */
+.llsSpike {color:blue;}
+/* For the nested ol collapse */
+ul {
+    /* list-style: none; 
+    margin: 0;
+    padding: 0;
+    */
+}
+ol {
+    /* list-style: none; 
+    margin: 0;
+    padding: 0;
+    */
+}
+li {
+    /* background-image: url(../img/favicon.ico); */
+    background-position: 0 1px;
+    background-repeat: no-repeat;
+    /* padding-left: 20px; */
+}
+li.llsBinderSection {
+    background-image: url(../img/favicon.ico);
+    padding-left: 20px;
+}
+
+a {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
