@@ -1,0 +1,38 @@
+﻿<div data-cc-sidebar data-ng-controller="sidebar as vm">
+    <div class="sidebar-filler"></div>
+    <div class="sidebar-dropdown"><a href="#">Menu</a></div>
+    <div class="sidebar-inner">
+        <div class="sidebar-widget">
+            <form class="form-inline">
+                <div class="input-append row-fluid">
+                    <input type="text" class="span8"
+                           placeholder="Find sessions"
+                           data-ng-model="vm.searchText"
+                           data-ng-keyup="vm.search($event)">
+                    <a class="btn btn-info btn-notext" data-ng-click="vm.search($event)"><i class="icon-search"></i></a>
+                </div>
+            </form>
+        </div>
+
+        <ul class="navi">
+            <li class="nlightblue fade-selection-animation" data-ng-class="vm.isCurrent(r)"
+                data-ng-repeat="r in vm.navRoutes">
+                <a href="#{{r.url}}" data-ng-bind-html="r.config.settings.content"></a>
+            </li>
+
+            <li data-cc-wip
+                wip="vm.wip"
+                routes="vm.routes"
+                changed-event="{{vm.wipChangedEvent}}"
+                class="nlightblue"></li>
+
+            <li class="nlightblue">
+                <a href="" data-ng-click="vm.clearStorage()">
+                    <i class="icon-cloud"></i> Clear Storage
+                    <span class="pull-right"></span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</div>

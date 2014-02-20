@@ -1,0 +1,71 @@
+﻿<section class="mainbar" data-ng-controller="speakerdetail as vm">
+    <section class="matter">
+        <div class="container-fluid">
+            <div>
+                <button class="btn btn-info"
+                        data-ng-click="vm.goBack()">
+                    <i class="icon-hand-left"></i>Back
+                </button>
+                <button class="btn btn-info"
+                        data-ng-click="vm.cancel()"
+                        data-ng-disabled="!vm.canSave">
+                    <i class="icon-undo"></i>Cancel
+                </button>
+                <button class="btn btn-info"
+                        data-ng-click="vm.save()"
+                        data-ng-disabled="!vm.canSave">
+                    <i class="icon-save"></i>Save
+                </button>
+                <span data-ng-show="vm.hasChanges"
+                      class="dissolve-animation ng-hide">
+                    <i class="icon-asterisk icon-asterisk-large"></i>
+                </span>
+            </div>
+            <div class="widget wgreen">
+                <div data-cc-widget-header title="Edit {{vm.speaker.fullName || 'New Speaker'}}" "></div>
+                <div class="widget-content user">
+                    <div>
+                        <div>
+                            <label>First Name</label>
+                            <input data-ng-model="vm.speaker.firstName"
+                                   data-z-validate
+                                   placeholder="First Name" />
+                        </div>
+                        <div>
+                            <label>Last Name</label>
+                            <input data-ng-model="vm.speaker.lastName"
+                                   data-z-validate
+                                   placeholder="Last Name" />
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input data-ng-model="vm.speaker.email"
+                                   data-z-validate
+                                   placeholder="Email" />
+                        </div>
+                        <div>
+                            <label>Blog</label>
+                            <input data-ng-model="vm.speaker.blog"
+                                   data-z-validate
+                                   placeholder="Blog" />
+                        </div>
+                        <div>
+                            <label>Twitter</label>
+                            <input data-ng-model="vm.speaker.twitter"
+                                   data-z-validate
+                                   placeholder="Twitter" />
+                        </div>
+                        <div>
+                            <img data-cc-img-person="{{vm.speaker.imageSource}}" class="img-polaroid"/>
+                        </div>
+                        <div>
+                            <label>Bio</label>
+                            <textarea data-ng-model="vm.speaker.bio"
+                                      placeholder="Enter speaker bio"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

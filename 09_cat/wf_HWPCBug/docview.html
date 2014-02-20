@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+  <meta charset="utf-8">
+  <title>HWPCBug - Ticket View</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="shortcut icon" href="/bootstrap/img/favicon.ico">
+  <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <style>
+  body {
+    padding-top: 30px;
+  }
+  .panel-heading {
+    border: 2px;
+  }
+  </style>
+</head>
+<!-- HTML code from Bootply.com editor -->
+<body  >
+
+<!-- Begin Navbar -->
+<div class="navbar navbar-fixed-top">
+   <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.hawkeyewestpestcontrol.com/" target="ext"><span class="icon-road"></span><b> HWPC</b></a>
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">  
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Options</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Sub-link</a></li>
+            <li><a href="#">Sub-link</a></li>
+            <li><a href="#">Sub-link</a></li>
+            <li><a href="#">Sub-link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav pull-right navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu" >
+              <form class="form-inline">
+          <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+              </form>
+           </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="logout.html">Logout</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="#">About</a></li>
+           </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</div><!-- /.navbar -->
+
+<!-- Begin Body -->
+<div class="container">
+  <div class="no-gutter row">
+
+    <!-- right content column-->
+    <div class="col-md-12" id="hwpc-ticket-view">
+      <!-- Password -->
+      <div class="panel">
+        <div class="panel-heading">
+          <button class="btn btn-primary"><span class="icon-phone"> {{ i.contact }}</span></button>
+          <button class="btn btn-primary"><span class="icon-map-marker">  {{ i.contact }}</span></button>
+        </div>   
+        <div class="panel-body">
+          <div class="account-wall">
+
+            <div class="ticket-print row ">
+                <div class="col-md-8">
+                    <div class="row hidden-xs hidden-sm">
+                        <div class="ticket-icon col-md-3"><img src="templates/Hawk.jpg" alt="Alternate Text" /><br />Ticket ID: {{i.id}}</div>
+                        <div class="ticket-client col-md-9">
+                            <div class="ticket-info row">
+                                <div class="ticket-hwpc-title col-md-12 text-center">
+                                    <h3>Hawkeye West Pest Control</h3>
+                                </div>
+                                <div class="ticket-hwpc-banner col-md-12">
+                                    <div class="row">
+                                        <small class="col-md-4 text-left">
+                                            1795 Park Circle<br>
+                                            Clarion, Iowa 50525
+                                        </small>
+                                        <small class="col-md-4 text-center">Lic # 02318-000</small>
+                                        <small class="col-md-4 text-right">
+                                            515-532-3499<br>
+                                            800-467-5231
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="ticket-client-service col-md-6">
+                                    Service Location
+                                    <div class="row">
+                                        <div class="col-md-12">Name of Location</div>
+                                        <div class="col-md-12">Address of Location</div>
+                                        <div class="col-md-12">City of Location</div>
+                                    </div>
+                                </div>
+                                <div class="ticket-client-billing col-md-6">
+                                    Bill To Location
+                                    <div class="row">
+                                        <div class="col-md-12">Name of Location</div>
+                                        <div class="col-md-12">Address of Location</div>
+                                        <div class="col-md-12">City of Location</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row hidden-xs hidden-sm">
+                        <div class="ticket-serviceline col-md-12">{{ i.service }}</div>
+                        <div class="ticket-serviceline col-md-12">Type of Service:</div>
+                        <div class="ticket-serviceline col-md-12">Type of Service:</div>
+                    </div>
+                    <div class="row hidden-xs hidden-sm">
+                        <div class="ticket-noteline col-md-12">{{ i.note }}</div>
+                        <div class="ticket-noteline col-md-12">Note:</div>
+                        <div class="ticket-noteline col-md-12">Note:</div>
+                        <div class="ticket-noteline col-md-12">Note:</div>
+                        <div class="ticket-noteline col-md-12">Note:</div>
+                    </div>
+                </div>
+
+                <!-- Begin HWPCBug Ticket Summary -->
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    <div class="row">
+                        <div class="col-xs-6"><button class="btn button-primary">{{ i.date }}</button></div>
+                        <div class="col-xs-6"><button class="btn button-primary">{{ i.time }}</button></div>
+                     </div>
+                    <div class="row">
+                        <div class="col-xs-4">Route:</div>
+                        <div class="col-xs-8">123</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Contact:</div>
+                        <div class="col-xs-8">George Washington Carver</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Phone:</div>
+                        <div class="col-xs-8">515.999.0000</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">Service Fee:</div>
+                        <div class="col-xs-6"><button class="btn button-primary">$0.00</button></div>
+                        <div class="col-xs-6"> ??% Tax:</div>
+                        <div class="col-xs-6">$0.00</div>
+                        <div class="col-xs-6">Total Due:</div>
+                        <div class="col-xs-6">$00.00</div>
+                    </div>
+                    <div class="ticket-acct-status row">
+                        <div class="col-xs-3"> STATUS:</div>
+                        <div class="col-xs-3"><button class="btn button-primary">PAID</button></div>
+                        <div class="col-xs-3"><button class="btn button-primary">CHARGE</button></div>
+                    </div>
+                </div>
+                <!-- End HWPCBug Ticket Summary -->
+        </div>
+
+          </div>
+        </div><!--/panel-body-->
+      </div><!--/panel-->
+    </div> <!--/end right column-->
+  </div><!--div class="no-gutter row" -->
+</div> <!--div class="container" -->
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">© Hawkeye West Pest Control, LLC 2014</div>
+    </div>
+  </div><!--div class="container" -->
+</footer>
+
+<!-- JavaScript jQuery code from Bootply.com editor -->
+<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript jQuery code from Bootply.com editor -->
+<script type='text/javascript'>
+
+$(document).ready(function() {
+  $('#sidebar').affix({
+    offset: {
+      top: 230,
+      bottom: 100
+    }
+  });	
+  $('#midCol').affix({
+    offset: {
+      top: 230,
+      bottom: 100
+    }
+  });	
+});
+</script>
+
+    </body>
+</html>

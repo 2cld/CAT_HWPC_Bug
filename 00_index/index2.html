@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="../02_references/img/favicon.ico">
+	<title>HWPC Bug Ticket Tracking</title>
+	<!--
+	<link rel="stylesheet" href="../02_references/css/llsBinder.css">
+	<script type="text/javascript" src="../02_references/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../02_references/js/llsBinderDividers.js"></script>
+	-->
+</head>
+<!--
+<body onload="llsBinderDividers()">
+-->
+<body>
+<a href="http://christrees.com" target="_blank">http://christrees.com</a> christrees@gmail.com
+<h1>Intent:</h1> Basic HWPC Bug Ticket Tracking Project Template. ==> RESET <== I was having multiple problems, I've seen all the parts work and multiple of them together but I keep breaking things.  Time for a reset.
+<h1>Test:</h1> Site at <a href="http://hwp.azurewebsites.net" target="_blank">http://hwp.azurewebsites.net</a>
+<h1>Steps:</h1>
+<ol>
+	<hr/><li><b class="llsdone" >Milestone 1: Setup</b> - Goal: Setup CI process for HWPC - Status: Done<hr/>Setup
+			<a href="https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc" target="_blank">https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc</a>, 
+			<a  target="_blank" href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/deployments">https://manage.windowsazure.com</a>, and
+			<a href="http://hwp.azurewebsites.net" target="_blank">http://hwp.azurewebsites.net</a>
+			</b>
+		<hr/>
+		<ol>Source Setup
+			<li>Create HWPC.cc project</li>
+			<li>cat8deve@live.com - Xxxx2Yyyyyy (owner)</li>
+			<li>cat8dev@live.com - ?? (dev on CAT_MSWin8Enterprise)</li>
+			<li>Used 'Open in Visual Studio' to set up repo in C:\Users\cat8d_000\Source\Repos\HWPC.cc</li>
+			<li>Copied in the souces... checked them in as "Initial Commit"</li>
+			<li>Found out that I didn't get the .nuget pulled in, so deleted everything.. pulled it in again (with show all hidden)</li>
+			<li>Clean, Build, Build again (after .nuget finishes after first build) launch site, confirm it works</li>
+			<li>New checkin - Add all untracked files, Commit 'Fix nuget crap', Sync</li>
+		</ol>
+		<ol>Azure Setup
+			<li>Site at <a href="http://hwp.azurewebsites.net" target="_blank">http://hwp.azurewebsites.net</a></li>
+			<li>Control at <a href="https://manage.windowsazure.com" target="_blank">https://manage.windowsazure.com</a> under christrees@live.com</li>
+			<li>Have azure pull from VSOnline <a href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/deployments">Deploy from Source</a></li>
+			<li>On <a href="https://hwpc.visualstudio.com" target="_blank">https://hwpc.visualstudio.com</a> I had to go to Control panel -> Default Collection -> HWPC.cc | Security Tab | Member of | and add Build Admin, Contrib, Project Admin and Project Valid Users</li>
+			<li>Then make a change in source and do commit 'Add Ticket.cs to kick off build to Azure', which it did and you can see the build in hwpc.vsol under <a href="https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/HWPC.cc%20Team/_build#_a=deployed" target="_blank">Build - Deployed</a></li>
+			<li>This deployment did not trigger a db change and the old db was for some other code, so I disable the db link <a href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/linkedResources" target="_blank">at this url</a> and also deleted the db <a href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/SqlAzureExtension/Databases" target="_blank">at this url</a></li>
+		</ol>
+		<ol>Test Setup
+			<li>Deployment hwp_CD_20140219.1</li>
+			<li>Go to <a target="_blank" href="http://hwp.azurewebsites.net/#/">http://hwp.azurewebsites.net/#/</a> should see the default site 120 sessions, 1039 Attendees, 37 Speakers</li>
+			<li>Lock the Deployment so we can go back to it</li>
+		</ol>
+	</li>
+	<hr/><li><b class="llstodo" >Milestone 2: Db Seed</b> - Goal: Create Db from code - Status: TODO<hr/>So I want a 'deployment' that will build and seed a data site from scrach.  The current build is using the data from App_Data/CodeCamper.sdf and I would like to get off SQLce and also create the seed data from code.
+		<ol>Steps
+			<li>First need to get my local build to use localdb, not the SQLce it is setup for.  I've had lots of strange issues with SQLce and it's primaraly do to the fact that MS is dropping support for ce and I'm using VS2013.  Also would like this to build and seed to Azure MSSQL db.</li>
+			<li>So the Connections string in Web.config is where all this starts.
+				<ul>In Web.config
+					<li>Set connection string to sue locaDB</li>
+					<li>Take out provider SqlServerCe</li>
+					<li>Set DbProviderFactory to use SqlCLient</li>
+				</ul>
+				That broke the app as it now fails to connect, but somewhere it is picking up the Error retrieving data.Cannot attach the file 'C:\Users\cat8d_000\Source\Repos\HWPC.cc\CC.Web\App_Data\CodeCamper.mdf' as database
+			</li>
+			<li>So how is it picking up nothing.  After a chat with CK, decided I should create the seed using CE... so back to CodeCamper.sdf (baically revert the web.config changes but leave as commetns)</li>
+			<li>Ok back to working... now lets setup migrations.  Create a dir DataMigrations</li>
+			<li>Pull in my old configuration file</li>
+			<li>Plumb up Ticket.cs model
+				<ul>
+					<li>Add Tickets HttpGet to Contollers/BreezeController.cs</li>
+					<li>Add Tickets IQueryalbe to CodeCamperRepository.cs</li>
+					<li>Add Tickets DbSet to CodeCamperDbContext.cs</li>
+					<li>Build solution just to check</li>
+				</ul>
+			</li>
+			<li>Add Migration
+				<ul>
+					<li>PM> add-migration -ConfigurationTypeName CC.Web.DataMigrations.Configuration "AddTicket"</li>
+					<li>PM> update-database -ConfigurationTypeName CC.Web.DataMigrations.Configuration -Verbose</li>
+					<li>I had some issues with ce gain... so went back to LocalDb, added a Default Connections string... then things worked</li>
+				</ul>
+			</li>
+			<li>Add View in App
+				<ul>
+					<li>add ticket dir to app with standard pattern of tickets.js/html ticketdetail.js/html</li>
+					<li>add to nav to config.route.js</li>
+					<li>add ticket to repo list (datacontext.js line 19)</li>
+					<li>add ticket to prime list (datacontext.js line 108)</li>
+					<li>Create repository.ticket.js</li>
+					<li>add ticket to entityNames in (model.js line 23)</li>
+					<li>Create registerTicket() in (model.js line 118)</li>
+					<li>Run function in the configureMetadata Store (model.js line 41)</li>
+					<li>Add the to index.html
+						<ul>
+							<li>app/ticket/tickets.js</li>
+							<li>app/ticket/ticketdetail.js</li>
+							<li>app/services/repository.ticket.js</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Test Ticket view</li>
+			<li>Checkin, Commit, Sync</li>
+			<li>Go to <a target="_blank" href="https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/_build">https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/_build</a>.  The commit should fire off a build that deploys to <a target="_blank" href="http://hwp.azurewebsites.net/">http://hwp.azurewebsites.net/</a></li>
+			<li>Tickets view fails due to lack of default db...</li>
+			<li>Go to <a target="_blank" href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/SqlAzureExtension/Databases">https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/SqlAzureExtension/Databases</a> and add a hwpdb</li>
+			<li>Go to <a target="_blank" href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/linkedResources">https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/linkedResources</a> and Add Linked Resource to hwpdb</li>
+			<li>Go to <a target="_blank" href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/configure">https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/configure</a> and change the connection strings to DefaultConnection so it matches with Web.config</li>
+			<li>That I think should have worked... But I think I did not have automigrations turned on so I don't know how to have the 'seed built'... So I'm going to leave this and move on... I got this to work under the config hwpc.azurewebsites.net, so need to go revisit when I get a local build going</li>
+			<li>Need to git this up and push so CK can review</li>
+			<li>Git this up on catmini
+				<ul>
+					<li>cd /Users/cat/Sites/11_CAT_Services/CAT_HWPC_Bug/</li>
+					<li>git add .</li>
+					<li>git commit -m "RESET index2 Milestone: 2"</li>
+					<li>git push -u origin master</li>
+					<li>Verify push <a href="https://github.com/christrees/CAT_HWPC_Bug"  target="_blank">https://github.com/christrees/CAT_HWPC_Bug</a></li>
+				</ul>
+			</li>
+
+		</ol>
+	</li>
+	<hr/><li><b class="llstodo" >Milestone 3: Contacts</b> - Goal: Put Contact table association into the Ticket Table - Status: TODO<hr/>Get a one to one entity relationship while also creating a Contacts table and view with nav and editing.
+		<ol>Steps
+			<li>Last Step</li>
+		</ol>
+	</li>
+	<hr/><li><b class="llstodo" >Milestone 4: Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
+		<ol>Steps
+			<li>Last Step</li>
+		</ol>
+	</li>
+	<hr/><hr/>THE END<hr/><hr/>
+	<!-- 
+		--
+		-- CAT_Tempates are below this marker
+		--
+	<hr/><li><b class="llstodo" >Milestone Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
+		<ol>Steps
+			<li>Last Step</li>
+		</ol>
+	</li>
+	-->
+</ol>
+
+</body>
+</html>

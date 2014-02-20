@@ -1,0 +1,153 @@
+/*
+.navbar {
+    min-height: 10px;
+    margin-bottom: 2px;
+}
+
+.sidebar .sidebar-widget {
+    padding: 3px 5px;
+        padding-top: 3px;
+        padding-right-value: 5px;
+        padding-bottom: 10px;
+        padding-left-value: 5px;
+        padding-left-ltr-source: physical;
+        padding-left-rtl-source: physical;
+        padding-right-ltr-source: physical;
+        padding-right-rtl-source: physical;
+}
+
+.matter {
+    padding: 10px 0px;
+}
+*/
+/* hwpcstyles.css */
+
+/* ticket fixups 
+h1, h2, h3 {
+margin-top: 5px;
+margin-bottom: 1px;
+}
+*/
+
+/* ticket display */
+@ticketDebugBorder: 0px solid red;
+
+.ticket-list {
+    border: @ticketDebugBorder;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-header {
+    border: 0px solid green;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-print {
+    border: 1px solid yellow;
+    margin: 0px;
+    padding: 0px;
+    color: black;
+}
+.ticket-info {
+    border-bottom: 1px solid black;
+    margin: 0px;
+    padding: 3px;
+    /* background-color: gray; */
+}
+.ticket-icon {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-client {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-client-service {
+    border: 1px solid black;
+    margin: 0px;
+    padding: 0px;
+    /* background-color: yellow; */
+}
+.ticket-client-billing {
+    border: 1px solid;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-hwpc-title {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+    max-height: 20px;
+}
+.ticket-hwpc-title h1 h2 h3 h4 {
+
+}
+.ticket-hwpc-banner {
+    border: 1px;
+    border-bottom: double;
+    margin: 0px;
+    padding: 0px;
+    /* background-color: yellow; */
+    max-height: 50px;
+}
+.ticket-hwpc-banner small {
+    font-size: x-small;
+
+}
+.ticket-serviceline {
+    border: 0px solid red;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-noteline {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-note-box {
+    border: 1px solid black;
+    min-height: 25px;
+}
+.ticket-acct {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+    background-color: green;
+}
+.ticket-acct-timedate {
+    border: 1px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-acct-route {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-acct-contact {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-acct-phone {
+    border: 2px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-acct-invoice {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-acct-status {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+.ticket-tools {
+    border: 0px solid gray;
+    margin: 10px;
+    padding: 10px;
+}

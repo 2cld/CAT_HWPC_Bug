@@ -9,6 +9,7 @@
 </head>
 <body onload="llsBinderDividers()">
 <a href="http://christrees.com" target="_blank">http://christrees.com</a> christrees@gmail.com
+<hr/><a href="./index2.html" target="_blank"> RESET - index2.html</a>
 <h1>Intent:</h1> Basic HWPC Bug Ticket Tracking Project Template. <a href="llsBinder_w5charter.html" target="_blank">llsBinder What, When, Where, Who and Why Project Charter</a>
 <h1>Test:</h1> Use this template.
 <h1>Steps:</h1>
@@ -17,8 +18,8 @@
 		<ol>Project Milestones
 			<li>Overview - Goal: This Section as an INDEX summary</li>
 			<li>Resource Collection - Goal: Identify resources</li>
-			<li>Milestone Template Task - Goal: shorttext</li>
-			<li>Milestone Template Task - Goal: shorttext</li>
+			<li>Milestone 1: Basic Site From Scratch</li>
+			<li>Milestone 2: Selenium Test Automation</li>
 		</ol>
 	</li>
 	<hr/><li><b class="llstodo" >Resource Collection</b> - Goal: Identify resources - Status: TODO<hr/>Many times we do not identify the resources we are leveraging when working.  This section provides a location to place notes about the resources used with the hope that upon a 'rebuild' or 'reuse' in the future, parties will benifit and also have a place to record resources they find missing or 'assumed' by past users 
@@ -59,14 +60,515 @@
 							<li>git init</li>
 							<li>git add .</li>
 							<li>git commit -m "first commit"</li>
-							<li>git remote add origin git://github.com/christrees/CAT_HWPC_Bug.git</li>
+							<li>git remote add origin https://christrees@github.com/christrees/CAT_HWPC_Bug.git</li>
 							<li>git push -u origin master</li>
 							<li>Verify push <a href="https://github.com/christrees/CAT_HWPC_Bug"  target="_blank">https://github.com/christrees/CAT_HWPC_Bug</a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
+			<li>Some quick reference links
+				<ul>
+					<li><a target="_blank" href="http://getbootstrap.com/css/#grid-options">Bootstrap Grid</a></li>
+					<li><a target="_blank" href="https://cat.visualstudio.com/">CAT Visual Studio Site</a></li>
+					<li><a target="_blank" href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/All/dashboard">CAT Windows Azure Manager Dashboard</a></li>
+					<li><a target="_blank" href="https://sites.google.com/site/catnetworkconfig/hosts/hawkeyewestpestcontrol-com">HWPC Old Network on Google</a></li>
+					<li><a target="_blank" href="https://sites.google.com/site/cathwpc/">HWPC Design (old) on Google</a></li>
+					<li><a target="_blank" href="https://github.com/christrees/HWPC">HWPC Old stuff on github</a></li>
+					<li><a target="_blank" href="http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/00_index/">The local dev stuff</a></li>
+					<li><a target="_blank" href="https://wrapbootstrap.com/themes">Wrap Bootstrap Themes for SALE</a></li>
+					<li><a target="_blank" href="http://pluralsight.com/training/Courses/TableOfContents/web-api-design">PS: Web-API-Design</a></li>
+					<li><a target="_blank" href="http://pluralsight.com/training/courses/TableOfContents?courseName=implementing-restful-aspdotnet-web-api&highlight=shawn-wildermuth_restful-aspdotnet-m1*7,2,4,5!shawn-wildermuth_restful-aspdotnet-m6*1,2!shawn-wildermuth_restful-aspdotnet-m2#restful-aspdotnet-m1">PS: RESTFUL ASP.NET Web API</a></li>
+					<li><a target="_blank" href="http://pluralsight.com/training/courses/TableOfContents?courseName=site-building-bootstrap-angularjs-ef-azure&highlight=shawn-wildermuth_site-building-m4*5#site-building-m4">PS: Bootstrap Angular EF Azure</a></li>
+					<li><a target="_blank" href="http://www.asp.net/web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing">ASP.NET: Create a REST API with Attribute Routing (MS Web API 2)</a></li>
+				</ul>
+			</li>
+			<li>Off Subject links
+				<ul>
+					<li>http://partners.adobe.com/public/developer/en/xml/XFDF_Spec_3.0.pdf</li>
+				</ul>
+			</li>
+			<li>Milestone Saves
+				<ul>Milestone 1 Saves
+					<li>HWPCBug_M1S1.zip <hr/>zip up C:\Users\Cat\Documents\Visual Studio 2013\Projects\HWPCBug to HWPCBug_M1S1.zip copy to <a target="_blank" href="../02_references/arch/">02_references/arch/</a></li>
+					<li>HWPCBug_M1S2.zip <hr/>zip up C:\Users\Cat\Documents\Visual Studio 2013\Projects\HWPCBug to HWPCBug_M1S2.zip copy to <a target="_blank" href="../02_references/arch/">02_references/arch/</a></li>
+					<li>HWPCBug_M1S3.zip <hr/>zip up C:\Users\Cat\Documents\Visual Studio 2013\Projects\HWPCBug to HWPCBug_M1S3.zip copy to <a target="_blank" href="../02_references/arch/">02_references/arch/</a></li>
+					<li>HWPCBug_M1S4.zip <hr/>zip up C:\Users\Cat\Documents\Visual Studio 2013\Projects\HWPCBug to HWPCBug_M1S4.zip copy to <a target="_blank" href="../02_references/arch/">02_references/arch/</a></li>
+
+				</ul>
+			</li>
 			<li><hr/>End of Resource Assuptions List</li>
+		</ol>
+	</li>
+	<hr/><li><b class="llsdone" >Milestone 1: Basic Site From Scratch</b> - Goal: Get a basic site and database up - Status: DONE<hr/>Get something as basic as possible that I can put up on Azure.  This basic structure will be for a Ticket with an attached list of dated Memo's that are associated with the ticket.  The intent of this Milestone is to establish the basic structure to itterate from.
+		<ol>Steps
+			<li>Create Visual Studio Project HWPCBug -> ASP.NET MVC in C:\Users\Cat\Documents\Visual Studio 2013\Projects\HWPCBug\</li>
+			<li>Build Site, should bring up webpage with | Home About Contact - Register Log in |</li>
+			<li>Attach the mail service to Contact Page with HTML form
+				<ul>
+					<li>Using <a target="_blank" href="http://getbootstrap.com/css/#grid-options">Bootstrap Grid</a> Create a form and Google Geo-Data</li>
+					<li>Create a HttpPost binding to Contact Controller to receive the post method from the Contact Form</li>
+					<li>Create ContactModel.cs with the properties being sent by post</li>
+					<li>Add data validation to form data using javascript</li>
+					<li>add the validation scripts to the view with @section</li>
+					<li>add the validation data types to the input fields</li>
+					<li>Create the MailService as injectable service
+						<ul>MailService
+							<li>Create a new folder called Services</li>
+							<li>Add new class MailService</li>
+							<li>Extract an interface from MailService to IMailService.cs</li>
+							<li>Mark it as public</li>
+						</ul>
+						<ul>Setup to inject on use
+							<li>So create the service in the HomeController constructor that accepts an IMailService</li>
+							<li>pass in as mail and assign to _mail so it will keep the handle</li>
+							<li>Now, pull in ninject mvc from NuGet to do the injection</li>
+							<li>Add the bind statement in NinjectWebCommon.cs Line 57</li>
+							<li>Now we should not get the error... but have not configed the mail
+						</ul>
+						<ul>Setup a MockMailService.cs in Services
+							<li>Create MockMailService.cs in Services</li>
+							<li>Set DEBUG to use MockMailService in NinjectWebCommons.cs</li>
+						</ul>
+					</li>
+					<li>Run and check output for message SentMail: Website Contact in Output</li>				
+				</ul>
+			</li>
+			<hr/>
+			<hr/>
+			<li>SAVE: HWPCBug_M1S1 (Milestone 1 Save 1) on CAT_MSWin81Enterprise</li>
+			<hr/>
+			<hr/>
+			<li>Add a new Action Link with Authentication
+				<ul>
+					<li>Add @Html.ActionLink("Tickets", "TicketsView", "Home") to the _Layout.cshtml</li>
+					<li>Add ActionResult TicketsView to HomeController</li>
+					<li>Add Route to RouteConfig.cs</li>
+					<li>Bind attribute [Authorize] to ActionResult TicketsView</li>
+					<li>Modify Web.config connectionStrings<hr/>add name="DefaultConnection" connectionString="Data Source=.\sqlexpress;Initial Catalog=MessageBoardDB;Integrated Security=SSPI;" providerName="System.Data.SqlClient"
+					</li>
+					<li>Register other Authorities (uncomment google and yahoo in App_Start - Startup.Auth.cs)</li>
+					<li>NOTE: the Authorize method allows you to specify Roles and Users<hr/>
+					[Authorized(Users='christrees@gmail.com')] or [Authorized(Roles='Admin')]
+				</ul>
+			</li>
+			<li>Create the Data Model Classes
+				<ul>
+					<li>Create Data folder</li>
+					<li>Create the Ticket class model</li>
+					<li>Create the Memo class model</li>
+					<li>Create the BugTicketContext class model inherit from DbContext using System.Data.Entity</li>
+					<li>Create a constructor that inherits the base class connection string </li>
+					<li>Create the DbSets so EF can build them when accessed</li>
+				</ul>
+			</li>
+			<li>Create a Repository
+				<ul>
+					<li>Create Interface IBugTicketRepository (NOTE: MAKE IT public)</li>
+					<li>Add IQueryable for Ticket and Memo</li>
+					<li>Create BugTicketRepository class that inherits IBugTicketRepository</li>
+					<li>Add IBugTicketRepository request to inject BugTicketRepository in NinjectWebCommon.cs</li>
+					<li>Add BugTicketContext request to inject BugTicketContext in NinjectWebCommon.cs</li>
+					<li>Create a constructor for BugTicketRepository</li>
+					<li>Now that we've got the _ctx object... return what we want on the IQuerialbles</li>
+				</ul>
+			</li>
+			<li>Use the data by injecting the repo into the Home Controller
+				<ul>
+					<li>pass in IBugTicketRepository as repo to HomeController constructor</li>
+					<li>use local _repo = repo to create a local copy handle</li>
+					<li>In Index Action use _repo.GetTicketes to get data pass to View</li>
+					<li>In View... display the list (use razor syntax)</li>
+				</ul>
+			</li>
+			<li>Test - the DB created Tables, ticket view passed structure with no items</li>
+			<hr/>
+			<hr/>
+			<li>SAVE: HWPCBug_M1S2 (Milestone 1 Save 2) on CAT_MSWin81Enterprise</li>
+			<hr/>
+			<hr/>
+			<li>Create Code First Migrations
+				<ul>
+					<li>Set configs in BugTicketContext.cs</li>
+					<li>Call Database.SetInitializer (pass it BugTicketMigrationsConfigurations)</li>
+					<li>BugTicketMigrationsConfigurations create the seed... I'm abit confused about all the configs but it works</li>
+					<li>If you want to nuke and start over, uncomment the Database.Delete(); in BugTicketContext.cs</li>
+				</ul>
+			</li>
+			<li>Build and browse Index, should see the data comments</li>
+			<li>Create the Web API
+				<ul>
+					<li>Add "Microsoft ASP.NET Web API 2 via NuGet</li>
+					<li>Add Web API Controller (Ticketes Controller</li>
+					<li>Add to App_Start/WebApiConfig.cs
+<hr/><pre>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
+using System.Net.Http.Formatting;
+using Newtonsoft.Json.Serialization;
+
+namespace HWPCBug
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API configuration and services
+      		var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+      		jsonFormatter.SerializerSettings.ContractResolver =
+        	new CamelCasePropertyNamesContractResolver();
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+        }
+    }
+}</pre><hr/>
+					</li>
+					<li>Verify Global.asax has
+<hr/><pre>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+
+namespace WebApplication1
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+    }
+}</pre><hr/>
+					</li>
+					<li>Get no constructor error, Now... need to inject the controller
+						<ul>
+							<li>NuGet WebApiContrib.IoC.Ninject</li>
+							<li>Add GlobalConfig... GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);</li>
+							<li>Go try... it should now work</li>
+						</ul>
+					</li>
+					<li>Mess with the Data format in WebApiConfig.cs put in camelCaseProperty...</li>
+					<li>User Fiddler to test out the data returns...</li>
+					<li>End Web API config steps</li>
+				</ul>
+			</li>
+			<li>Add Write to Web API 
+				<ul>
+					<li>Add save and add to the IBugTicketRepository.cs THIS IS JUST the interface.</li>
+					<li>Add the backing functions from Interface to BugTicketRepository.cs (use the _ctx local we have)</li>
+					<li>Create the Post in TicketsControllers.cs</li>
+					<li>In the Post response, set a status code type</li>
+					<li>Test using Fiddlers post, remember to set Content-Type: application/json</li>
+					<li>Now create a nested controller config so we can get Memos of a Ticket</li>
+					<li>WebApiConfig.cs add route nesting</li>
+					<li>Create new MemosController.cs and pass back a get using GetMemosByTicket</li>
+					<li>Put a new IQuerable that includes Memos in IBugTicketRepository.cs</li>
+					<li>Add the backing functions from Interface to BugTicketRepository.cs</li>
+					<li>Use function in TicketsController.cs</li>
+					<li>Now add Post for a Memo</li>
+					<li>AddMemo to the IBugTicketRepository.cs</li>
+					<li>Add the backing functions from Interface to BugTicketRepository.cs</li>
+					<li>Add the HttpResponseMessage return to the Post verb in MemosController.cs</li>
+				</ul>
+			</li>
+			<li>Add Query parameters
+				<ul>
+					<li>In TicketsController add in a bool to trigger with memos on the tickets reqest</li>j
+					<li>Add logic to switch on passed query param</li>
+					<li>Test http://localhost:2746/api/v1/tickets?includeMemos=true vs http://localhost:2746/api/v1/tickets</li>
+					<li>... happy? ...</li>
+				</ul>
+			</li>
+			<hr/>
+			<hr/>
+			<li>SAVE: HWPCBug_M1S3 (Milestone 1 Save 3) on CAT_MSWin81Enterprise</li>
+			<hr/>
+			<hr/>
+			<li><hr/>Add Angular<hr/>
+			</li>
+			<li>Setup Angular
+				<ul>
+					<li>NuGet Angular JS package</li>
+					<li>Add new angular bundle to App_Start/BundleConfig.cs</li>
+					<li>Add bundule to Shared/_Layout.cshtml so it will get included on the pages</li>
+					<li>Tuck the data-ng-app="" attribute into the _Layout.cshtml HTML element so angular will process all directives it finds</li>
+					<li>create folder js for client side scritps</li>
+				</ul>
+			</li>
+			<li>Add Angular Controller
+				<ul>
+					<li>Add home-index.js</li>
+					<li>Add data-ng-controller="homeIndexController" attribute to div in Index.cshtml</li>
+					<li>Add some view stuff inside div</li>
+					<li>Add s.... got hacking too much... will have to fill-in later... but got stuff working</li>
+				</ul>
+			</li>
+			<hr/>
+			<hr/>
+			<li>SAVE: HWPCBug_M1S4 (Milestone 1 Save 4) on CAT_MSWin81Enterprise</li>
+			<hr/>
+			<hr/>
+			<li><hr/>Add Unit Test<hr/></li>
+			<li>Setup
+				<ul>
+					<li>Add Test Project: Add -> New Project -> Unit Test Project -> Name: HWPCBug.Tests</li>
+					<li>Add Reference: System.Web</li>
+					<li>Add Reference: HWPCBug</li>
+					<li>Add NuGet -> ASP.NET MVC</li>
+					<li>Add NuGet -> ASP.NET Web API 2</li>
+				</ul>
+			</li>
+			<li>Unit test the MVC HomeController
+				<ul>
+					<li>... hack in HomeControllerTest.cs and FakeBugTicketRepository.cs</li>
+					<li>Bring up Test explorer... Build Test solution and tests should come up in runner</li>
+					<li>... I hacked this in... so need to flesh out details, but most is debugging the code</li>
+				</ul>
+			</li>
+			<li>Unit test the WebAPI
+				<ul>
+					<li>Create a UnitTest rename to TicketsControllerTest.cs</li>
+					<li>Create a Test method.. TicketsController_Get()</li>
+					<li>new up a TicketsController from HWPCBug and pass it the FakeBugTicketRepository</li>
+					<li>Do a basic test... heck... I hacked again... look at the code</li>
+				</ul>
+			</li>
+			<li>Test the Javascript
+				<ul>
+					<li>NuGet chutzpah ?? I had issues getting the Test Adaptor ??</li>
+					<li>NuGet jasmine.js (not Jasmine Test Framework)</li>
+					<li>... having an issue with angular-mocks</li>
+					<li>https://github.com/wizardwerdna/angular.js/commit/17515763b891ea617339610fe92079cefe0efbbe</li>
+					<li>https://github.com/angular/angular.js/pull/5047</li>
+					<li>http://stackoverflow.com/questions/20055368/typeerror-attempted-to-assign-to-readonly-property</li>
+					<li>Try patch https://raw2.github.com/wizardwerdna/angular.js/17515763b891ea617339610fe92079cefe0efbbe/src/ngMock/angular-mocks.js</li>
+				</ul>
+			</li>
+			<li><hr/>UI Cleanup<hr/>
+			<li>Some Ticket format
+				<ul>
+					<li>ticket-list
+						<ul>
+							<li>ticket-header</li>
+							<li>ticket-print
+								<ul>
+									<li>ticket-info
+										<ul>
+											<li>ticket-icon</li>
+											<li>ticket-client
+												<ul>
+													<li>ticket-hwpc-title</li>
+													<li>ticket-hwpc-banner</li>
+													<li>ticket-client-service</li>
+													<li>ticket-client-billing</li>
+												</ul>
+											</li>
+											<li>ticket-serviceline</li>
+											<li>ticket-noteline</li>
+										</ul>
+									</li>
+									<li>ticket-acct
+										<ul>
+											<li>ticket-acct-timedate</li>
+											<li>ticket-acct-route</li>
+											<li>ticket-acct-contact</li>
+											<li>ticket-acct-phone</li>
+											<li>ticket-acct-invoice</li>
+											<li>ticket-acct-status</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>ticket-tools</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Basics of UI dev loop
+				<ul>
+					<li><a target="_blank" href="http://getbootstrap.com/css/#grid-options">Bootstrap Grid</a> use the 12 grid</li>
+					<li>Get basic Ticket View like the old Ticket... attempt to structure the css using less</li>
+					<li>it's crappy but it's all there... move on to adding data</li>
+				</ul>
+			</li>
+			</li>
+			<hr/>
+			<hr/>
+			<li>SAVE: HWPCBug_M1S5 (Milestone 1 Save 5) on CAT_MSWin81Enterprise</li>
+			<hr/>
+			<hr/>
+			<li><hr/>Extend Model<hr/></li>
+			<li>Setup
+				<ul>
+					<li>The old Delphi layout <a target="_blank" href="https://github.com/christrees/HWPC/blob/master/HWPC_DelphiProg/HWPC_Delphi_Layout.JPG">HWPC_Delphi_Layout of DB</a></li>
+					<li>The Customer Table <a target="_blank" href="https://github.com/christrees/HWPC/blob/master/HWPC_DelphiProg/HWPC_Program_CustomerDB.JPG">HWPC_Program_CustomerDB</a></li>
+					<li>The Ticket Table <a target="_blank" href="https://github.com/christrees/HWPC/blob/master/HWPC_DelphiProg/HWPC_Program_TicketDB.JPG">HWPC_Program_TicketDB</a></li>
+				</ul>
+			</li>
+			<li>Model Extend
+				<ul>
+					<li>Add bool Active to Ticket.cs</li>
+					<li>Add Active = true to Seed</li>
+					<li>Build... see Active now in db</li>
+					<li>Attach Note to Note in UI</li>
+					<li>... hack going back and forth between old structure and new...</li>
+					<li>got something basic I like.. put it up..</li>
+				</ul>
+			</li>
+			<hr/>
+			<hr/>
+			<li>SAVE: HWPCBug_M1S6 (Milestone 1 Save 6) on CAT_MSWin81Enterprise</li>
+			<hr/>
+			<hr/>
+			<li><hr/>Push to Azure<hr/>
+			</li>
+			<li>Azure setup
+				<ul>
+					<li>Login to <a target="_blank" href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/All/dashboard">CAT Windows Azure Manager Dashboard</a></li>
+					<li>Goto Websites create new -> quick create -> hwpc -> North Central US</li>
+					<li>From hwpc dashboard pull down publish profile</li>
+					<li>From Visual Studio 2013 rightclick on HWPCBug project -> Publish -> Import above file -> OK -> Publish</li>
+					<li>It should lauch <a target="_blank" href="http://hwpc.azurewebsites.net/">http://hwpc.azurewebsites.net/</a> from broswer but FAIL (no db yet)</li>
+					<li>Go back to Azure, pick Data Services, SQL Database, Custom Creat</li>
+					<li>Name: hwpcbugticketdb - Edition: Web - Size: 1gb (or smallest)</li>
+					<li>Login: cathwpc WP: Time2Invest Region: North Central US</li>
+					<li>Got to Web Site - hwpc - Linked Resources - Link to Existing - SQL - (complete db settings)</li>
+					<li>Go grab connection string name out of project "DefaultConnection"</li>
+					<li>in Web Site rename the connection string in Configure -> connections strings rename: hwpcbugticketdb to DefaultConnection</li>
+				</ul>
+			</li>
+			<li>Refactor: Add view for Add Ticket
+				<ul>
+					<li>Add ticket view to Edit</li>
+					<li>Add colums to Tickets Model
+						<ul>
+							<li>RouteId</li>
+							<li>ServlocId</li>
+							<li>BilllocId</li>
+
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>I should try this  <a target="_blank" href="http://icelab.com.au/articles/levelling-up-with-angularjs-building-a-reusable-click-to-edit-directive/">Click to Edit Directive</a></li>
+			<li>Freak'n UI pissed me off... some notes
+				<ul>forms
+					<li>http://jsfiddle.net/52VtD/204/</li>
+					<li>http://jsfiddle.net/Sherbrow/6CVns/light/</li>
+					<li>http://jsfiddle.net/JMKuK/</li>
+					<li>http://stackoverflow.com/questions/12119981/twitter-bootstrap-max-width-of-input-field</li>
+					<li> from http://getbootstrap.com/css/?#overview <hr/><pre>Grids and full-width layouts
+Folks looking to create fully fluid layouts (meaning your site stretches the entire width of the viewport) must wrap their grid content in a containing element with padding: 0 15px; to offset the margin: 0 -15px; used on .rows.</pre> <hr/></li>
+				</ul>
+				<ul>wrapstrap
+					<li>http://wrapbootstrap.com/preview/WB00J6977</li>
+					<li>http://wrapbootstrap.com/preview/WB0573SK0</li>
+					<li>https://wrapbootstrap.com/theme/flex-admin-responsive-admin-template-WB032SCB1</li>
+					<li>http://wrapbootstrap.com/preview/WB063H186</li>
+					<li>https://wrapbootstrap.com/theme/canvas-admin-responsive-admin-theme-WB063H186</li>
+					<li>http://wrapbootstrap.com/preview/WB0T41TX4</li>
+				</ul>
+				<ul>Layout bootstrap stuff
+					<li>http://www.layoutit.com/build</li>
+					<li>http://bootply.com/new?visual=1#</li>
+					<li>http://bootply.com/render/85850</li>
+					<li>https://codiqa.com/</li>
+					<li>https://01.org/rib/ and http://xdk-software.intel.com/</li>
+					<li>http://developer.mashery.com/developer_experience https://github.com/mashery/iodocs</li>
+					<li>https://www.boottheme.com/app/</li>
+					<li>http://pikock.github.io/bootstrap-magic/app/#!/editor</li>
+					<li>http://wrapbootstrap.com/preview/WB0DFT966</li>
+					<li>http://tiggzi.com/home  http://www.mobjectify.com/</li>
+					<li>https://jetstrap.com/plans</li>
+				</ul>
+			</li>
+			<hr/>
+			<hr/>
+			<li>SAVE: HWPCBug_M1S7 (Milestone 1 Save 7) on CAT_MSWin81Enterprise</li>
+			<hr/>
+			<hr/>
+			<li>END STEPS - Milestone 1: Basic Site From Scratch</li>
+		</ol>
+	</li>
+	<hr/><li><b class="llsdone" >Milestone 2: Selenium Test Automation</b> - Goal: Setup a isolated Test Automation project to target a HWPCBug site - Status: DONE<hr/>As the person that will end up supporting this forever, want Selenium test that understands the page framework through a glossary, so I can remember all the structure as quickly as possible (supply a context refresh through test automation).
+		<ol>Steps
+			<li>Create Visual Studio project
+				<ul>
+				<li>New Project -> Visual C#: Class Library</li>
+				<li>Name: HWPCBugAutomation</li>
+				<li>Add -> New Project -> Visual C# -> Test -> Unit Test</li>
+				<li>Name: HWPCBugTests</li>
+				<li>In HWPCBugTests add reference to HWPCBugAutomation</li>
+				</ul>
+			</li>
+			<li>Add Selenium to HWPCBugAutomation
+				<ul>
+				<li>HWPCBugAutomation->References right-click add NuGet (Selenium Web Driver ADN Selenium Support Classes)</li>
+				<li>Create simple web test</li>
+				<li>in Class1.cs add using OpenQA.Selenium.Firefox;</li>
+				<li>create go() that opens google.com</li>
+				<li>in UnitTest1.cs pull in Class1() and run go</li>
+				<li>This should bring up firefox and go to google</li>
+				<li>Refactor by renaming Class1.cs -> GotoGoogle.cs</li>
+				<li>Refactor by renaming unitTest1.cs -> GotoGoogleTest.cs</li>
+				</ul>
+			</li>
+			<li>Test Itteration
+				<ul>
+				<li>Use the soi_(value)_asa_(stakeholder)_iwant_(tool) and start coding...</li>
+				<li>See HWPCBug_SmokeTest.cs as example<hr/>
+<pre>public void soi_ViewTickets_asa_User_iwant_TicketPage()
+        {
+            TicketsPage.GoTo();
+            Assert.IsTrue(TicketsPage.IsAt, "TicketPage Fail");
+        }</pre><hr/>
+				</li>
+				<li>Create the TicketsPage.cs in WebAutomation (this is the start of the Page Object)</li>
+				<li>Now back in HWPCBug_SmokeTest.cs use VS to create the method</li>
+				<li>Decided to add a basic login PageObject and test...</li>
+				</ul>
+			</li>
+			<li><hr/>Add SpecFlow / Cucumber<hr/>
+				<ul>
+					<li>Extensions and updates -> Online -> SpecFlow for Visual Studio 2013</li>
+					<li>Restart VS</li>
+					<li>Add new Project -> Class Lib: HWPCBug.specs</li>
+					<li>Delete the Class1.cs</li>
+					<li>Add -> new Item -> SpecFlow Feature File: Login.feature</li>
+					<li>Install NuGet: SpecFlow.NUnit (will pull in everything we need)</li>
+					<li>Add to App.config<hr/>trace stepDefinitionSkeletonStyle="MethodNameUnderscores"</li>
+					<li>Install Extension NUnit Test Adapter</li>
+					<li>Create step definitions by right click on Login.feature file -> Generate Step Definitions</li>
+					<li>Add in Reference to HWPCBugAutomation in HWPCBug.specs</li>
+					<li>Build the HWPCBug.specs and tests should show up in test runner</li>
+					<li>Do some BDD... and make test work</li>
+					<li>... the big issue right now is the ID's generated by default VS stuff has Pascal case which messes up something in the Selenium selector chain (I think it's a camelCase filter in WebDriver??)</li>
+					<li>Do a param table for testing...</li>
+				</ul>
+			</li>
+			<li><hr/>Fix and new Push to Azure<hr/>
+			</li>
+			<hr/>
+			<hr/>
+			<li>SAVE: HWPCBug_M2S1 (Milestone 2 Save 1) on CAT_MSWin81Enterprise</li>
+			<hr/>
+			<hr/>
+			<li>Last Step</li>
 		</ol>
 	</li>
 	<!-- 
@@ -75,9 +577,119 @@
 		--
 	-->
 	<hr/><hr/>Active Work In Progress (AWIP)<hr/><hr/>
-	<hr/><li><b class="llsawip" >Milestone Template Task</b> - Goal: shorttext - Status: AWIP<hr/>Some longer description of what this task is all about before I get into the steps.
+	<hr/><li><b class="llsawip" >Milestone 3: Adapt to existing Data</b> - Goal: Accept the data format from the existing Delphi database - Status: AWIP<hr/>I want to import all the existing data from the current Delphi program.  To do that I figure I'll just match up the current db structures.
 		<ol>Steps
-			<li>Last Step</li>
+			<li><hr/>Resources<hr/>
+				<ul>
+					<li>The old Delphi layout <a target="_blank" href="https://github.com/christrees/HWPC/blob/master/HWPC_DelphiProg/HWPC_Delphi_Layout.JPG">HWPC_Delphi_Layout of DB</a></li>
+					<li>The Customer Table <a target="_blank" href="https://github.com/christrees/HWPC/blob/master/HWPC_DelphiProg/HWPC_Program_CustomerDB.JPG">HWPC_Program_CustomerDB</a></li>
+					<li>The Ticket Table <a target="_blank" href="https://github.com/christrees/HWPC/blob/master/HWPC_DelphiProg/HWPC_Program_TicketDB.JPG">HWPC_Program_TicketDB</a></li>
+				</ul>
+			</li>
+			<li><hr/>Add tables to Ticket<hr/>
+				<ul>
+					<li>View the sqlexpress db structure through VS2013 Server Explorer</li>
+					<li>Add these <a target="_blank" href="https://github.com/christrees/HWPC/blob/master/HWPC_DelphiProg/HWPC_Program.html">colums</a> to Ticket
+						<ul>
+							<li>Tickets.Active</li>
+							<li>DBText1 = Tickets.TicketID</li>
+							<li>DBText2 = Tickets.SerLocID</li>
+							<li>DBText3 = Tickets.BillToID</li>
+							<li>DBText4 = Tickets.RouteID</li>
+							<li>DBText5 = Tickets.SrvInfoID</li>
+							<li><hr/>PULLED FROM Contacts<hr/>
+							<ul>
+							<li>DBText6 = Tickets.ContName</li>
+							<li>DBText7 = Tickets.ContPhone</li>
+							<li>DBText8 = Tickets.BTName</li>
+							<li>DBText9 = Tickets.BTAddr</li>
+							<li>DBText10 = Tickets.BTCity</li>
+							<li>DBText11 = Tickets.BTState</li>
+							<li>DBText12 = Tickets.BTZip</li>
+							<li>DBText13 = Tickets.SLName</li>
+							<li>DBText14 = Tickets.SLAddr</li>
+							<li>DBText15 = Tickets.SLCity</li>
+							<li>DBText16 = Tickets.SLState</li>
+							<li>DBText17 = Tickets.SLZip</li>
+							</ul>
+							<li><hr/>PULLED FROM SrvInfo<hr/>
+							<ul>
+							<li>DBText18 = Tickets.ServDesc</li>
+							<li>DBText19 = Tickets.Comment</li>
+							<li>DBText20 = Tickets.PrevBal</li>
+							<li>DBText21 = Tickets.SerFee</li>
+							<li>DBText22 = Tickets.Tax</li>
+							<li>DBText23 = Tickets.Total</li>
+							<li>DBText24 = Tickets.Note1</li>
+							<li>DBText25 = Tickets.Note2</li>
+							<li>DBText26 = Tickets.Note3</li>
+							<li>DBText27 = Tickets.Rem1</li>
+							<li>DBText28 = Tickets.Rem2</li>
+							<li>DBText29 = Tickets.Rem3</li>
+							<li>DBText30 = Tickets.TaxRate</li>
+							</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Use <a target="_blank" href="http://schema.org">http://schema.org</a> to guide tables</li>
+					<li>Need these tables added:
+						<ul>
+							<li>Person <a target="_blank" href="http://schema.org/Person">http://schema.org/Person</a><hr/>
+<pre>    public class Person
+    {
+        public int Id { get; set; }
+        public string GivenName { get; set; }
+        public string FamilyName { get; set; }
+        public string AdditionalName { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
+        [Phone]
+        public string Telephone { get; set; }
+        public int AddressId { get; set; }
+        public virtual PostalAddress Address { get; set; }
+        public int HomeLocationId { get; set; }
+        public virtual ContactPoint HomeLocation { get; set; }
+        public int WorkLocationId { get; set; }
+        public virtual ContactPoint WorkLocation { get; set; }
+        public string JobTitle { get; set; }
+    }</pre>
+							</li>
+							<li>PostalAddress <a target="_blank" href="http://schema.org/PostalAddress">http://schema.org/PostalAddress</a><hr/>
+<pre>        public PostalAddress() 
+        {
+            StreetAddress = string.Empty;
+            AddressCountryId = 840; //Default to United States http://en.wikipedia.org/wiki/ISO_3166-1_numeric 
+        }
+        public int Id { get; set; }
+        public string StreetAddress { get; set; }
+        public string PostOfficeBoxNumber { get; set; }
+        public string PostalCode { get; set; }
+        public string AddressRegion { get; set; }
+        public string AddressLocality { get; set; }
+        public int AddressCountryId { get; set; }
+        public virtual Country AddressCountry { get; set; }
+    }</pre>
+							</li>
+							<li>ContactPoint <a target="_blank" href="http://schema.org/ContactPoint">http://schema.org/ContactPoint</a><hr/>
+<pre>    public class ContactPoint
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string ContactType { get; set; }
+        public string Email { get; set; }
+        public string Telephone { get; set; }
+    }</pre>
+    						</li>
+							<li>Country <a target="_blank" href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric">http://en.wikipedia.org/wiki/ISO_3166-1_numeric</a></li>
+
+
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+
 		</ol>
 	</li>
 	<!-- 
@@ -86,12 +698,119 @@
 		--
 	-->
 	<hr/><hr/>TO be DONE<hr/><hr/>
-	<hr/><li><b class="llstodo" >Milestone Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
+	<hr/><li><b class="llstodo" >Milestone 4: HWPC Field Test</b> - Goal: Mark and Candy use for 3 weeks and not have to go back to old computer - Status: TODO<hr/>If Mark and Candy can get through a few weeks without haveing to access the old system, that would be acceptable for an extended Beta test.
 		<ol>Steps
-			<li>Some words from <a href="http://christrees.com" target="_blank">Chris A. Trees</a></li>
-			<li>Last Step</li>
+			<li>Chat with Candy<hr/><pre>
+Candy Fjetland: I have i pad and we both have smart phones but will use whatever works best. Tell your Dad to deliver laptop on way to diamond Jo at northward. 10:28 AM
+Me: ok.. let call me when your ready ?tomorrow right? I've got a few versions up and we will go through them. 10:32 AM
+Candy Fjetland: Yup tomorrow what we need computer? Ron has a lap top that works and that about it he has dropped a few times. 11:38 AM
+Candy Fjetland: Mark said he will ne down around 9 in the morning 6:33 PM
+Me: ok... you can call early if you want... I get going before 7am 6:35 PM
+Candy Fjetland: Okay u want US on computer? 6:39 PM
+Me: phone and computer (or smart phone) 6:41 PM
+Candy Fjetland: Okay 7:51 PM
+Me: https://join.me/327-092-362 8:33 AM
+Me: If you click the last link you should connect to my screen and a conference call 8:33 AM
+Candy Fjetland: Okay have get ready and Mark here 8:35 AM
+Me: You can also just call in on a regular phone: 860.970.0010 ConfID: 327.092.362 8:35 AM
+Me: no rush... I just was setting stuff up... and I get to bug you 8:36 AM
+Candy Fjetland: Now 8:50 AM
+Candy Fjetland: I am at join me not 8:51 AM
+Me: you can call into that number above.. or click on the link 8:51 AM
+Me: 327-092-362 8:52 AM
+Candy Fjetland: We back i got my email with google Mark having prob he has another acc 10:35 AM
+Me: call in on: 860.970.0010 ConfID: 327.092.362 again... 11:19 AM
+Candy Fjetland: Mark is on 11:28 AM</pre><hr/>
+			</li>
+			<li>HWPC Work Session (Mark, Candy and myself): Apple Notepad Text<hr/><pre>
+Screenshared via joinme.com
+call in on a regular phone: 860.970.0010 ConfID: 327.092.362
+…or call my 515.999.0007 number
+
+whoops… I had screen turned off…
+
+(beer options)
+
+New Customer
+New Ticket
+Products ??
+Route Scheduling
+Printing before whining
+
+Tax Stuff… Account Receivable, Payable (creates an excel sheet) Sales Tax, Expense Account
+
+Route Prep
+Drive order
+Pre Call button
+Chat about Ticket warning...
+
+Route
+Date and Route number
+Service Location (Name)
+Service Location (Address)
+DONE button (link to Status: Paid - Charge (check number)
+Unfinished button (drop down with reasons - change service billing, golden ticket)
+Personal Certification Number (and Business Lic#)
+Service Fee (click on to edit service types)
+Tax fee (local option tax)… fix this… 
+
+Route Service Detail
+Pen or picture of paper…
+Chat Ticket
+Whine break app...
+
+
+Ticket ServiceType (printed on invoice and ticket)
+Ticket ServiceLine (printed on ticket)
+Ticket Note (printed on ticket)
+Ticket Personal Certification Number (printed on ticket)
+Chat about ticket (turd talk about ticket copy)
+Followup issue
+
+
+Collections
+Type: Credit Card, Check, Cash, Charge (monthly statements sent)
+Chat about ticket</pre></li>
+			<li>Use Map Table
+				<table border='1'>
+					<tr>
+						<th>So that I can</th><th>as a HWPC</th><th>I want</th><th>Use</th>
+					</tr>
+					<tr>
+						<td>update tickets</td><td>route administrator</td><td>access to all tickets via a website I can access</td><td>uc001</td>
+					</tr>
+					<tr>
+						<td>leave tickets at the service site</td><td>technician</td><td>to print tickets for a route</td><td>uc002</td>
+					</tr>
+					<tr>
+						<td>tag a ticket as done from my phone</td><td>technician</td><td>Done button on the Ticket-info display</td><td>uc003</td>
+					</tr>
+					<tr>
+						<td>settle a tickets financial charges from my phone</td><td>technician</td><td>a payment Status button</td><td>uc004</td>
+					</tr>
+					<tr>
+						<td>can</td><td>as</td><td>want</td><td>uc00x</td>
+					</tr>
+				</table>
+			</li>
+			<li>Moved the project management stuff to <a target="_blank" href="https://hwpc.visualstudio.com/DefaultCollection/HWPCBug/">https://hwpc.visualstudio.com/DefaultCollection/HWPCBug/</a> with users christrees@live.com cat8deve@live.com cat8dev@live.com</li>
+			<li>I'm having issues with the database in the example structure... so I'm going to clean as many of the parts up as I can, archieve it, git it, tag it and start over from the data base.
+				<ul>Review of code
+					<li>Azure Deployed: <a target="_blank" href="http://hwpc.azurewebsites.net/#/">http://hwpc.azurewebsites.net/#/</a></li>
+					<li>Azure Deployed: <a target="_blank" href="http://hwp.azurewebsites.net/#/">http://hwp.azurewebsites.net/#/</a></li>
+					<li>htHWPCBug_M4.zip is Visual Studio: htHWPCBug - deploys to <a target="_blank" href="http://hwp.azurewebsites.net">http://hwp.azurewebsites.net</a></li>
+					<li>HWPCBug_M4.zip is Visual Studio: HWPCBug - deploys to <a target="_blank" href="http://hwpc.azurewebsites.net">http://hwpc.azurewebsites.net</a></li>
+					<li>HWPCBugAutomation_M4.zip is Visual Studio: HWPCBugAutomation - contains cucumber specs that test HWPCBug</li>
+					<li>HTML5 App: Angular Hot-Towel <a target="_blank" href="http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/09_cat/0htHWPCBug/#/">http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/09_cat/0htHWPCBug/#/</a></li>
+					<li>HTML5 App: Angular Hot-Towel <a target="_blank" href="http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/09_cat/htHWPCBug/#/">http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/09_cat/htHWPCBug/#/</a></li>
+					<li>HTML5 App: Angular minimum <a target="_blank" href="http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/09_cat/ngHWPCBug/app/#/dashboard">http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/09_cat/ngHWPCBug/app/#/dashboard</a></li>
+					<li>HTML5 App: CSS3 test <a target="_blank" href="http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/09_cat/wf_HWPCBug/docview.html">http://catmini.local/~cat/11_CAT_Services/CAT_HWPC_Bug/09_cat/wf_HWPCBug/docview.html</a></li>
+				</ul>
+			</li>
 		</ol>
 	</li>
+
+
 	<hr/><hr/>THE END<hr/><hr/>
 	<!-- 
 		--
@@ -107,3 +826,6 @@
 
 </body>
 </html>
+
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=1795+Park+Circle,+Clarion,+IA&amp;aq=0&amp;oq=1795+Park+Circle,+Clari&amp;sll=42.519269,-92.455135&amp;sspn=0.21686,0.248222&amp;ie=UTF8&amp;hq=&amp;hnear=Park+Cir,+Clarion,+Wright,+Iowa+50525&amp;t=m&amp;z=14&amp;iwloc=A&amp;ll=42.790916,-93.684012&amp;output=embed"></iframe>
+<br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=1795+Park+Circle,+Clarion,+IA&amp;aq=0&amp;oq=1795+Park+Circle,+Clari&amp;sll=42.519269,-92.455135&amp;sspn=0.21686,0.248222&amp;ie=UTF8&amp;hq=&amp;hnear=Park+Cir,+Clarion,+Wright,+Iowa+50525&amp;t=m&amp;z=14&amp;iwloc=A&amp;ll=42.790916,-93.684012" style="color:#0000FF;text-align:left">View Larger Map</a></small>

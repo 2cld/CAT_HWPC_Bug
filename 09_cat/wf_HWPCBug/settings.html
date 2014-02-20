@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+  <meta charset="utf-8">
+  <title>uxPremier - Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="shortcut icon" href="/bootstrap/img/favicon.ico">
+  <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+</head>
+<!-- HTML code from Bootply.com editor -->
+<body  >
+
+<!-- Begin Navbar -->
+<div class="navbar navbar-static">
+   <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.mypremiercreditcard.com/" target="ext"><img src="http://placehold.it/60x30/E7E7E7"><b>Premier</b></a>
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </div>
+      <div class="navbar-collapse collapse">
+        <!-- <ul class="nav navbar-nav">  
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Options</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Sub-link</a></li>
+              <li><a href="#">Sub-link</a></li>
+              <li><a href="#">Sub-link</a></li>
+              <li><a href="#">Sub-link</a></li>
+              
+            </ul>
+          </li>
+        </ul> -->
+        <ul class="nav pull-right navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+            <ul class="dropdown-menu" style="padding:12px;">
+                <form class="form-inline">
+            <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+                </form>
+             </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="logout.html">Logout</a></li>
+              <li><a href="settings.html">Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="#">About</a></li>
+             </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div><!-- /.navbar -->
+
+<!-- Begin Body -->
+<div class="container">
+  <div class="no-gutter row">
+    <!-- left side column -->
+    <div class="col-md-2">
+      <div class="panel panel-default affix-top" id="sidebar">
+        <div class="panel-heading" style="background-color:#888;color:#fff;">Sidebar</div> 
+        <div class="panel-body">
+          <ul class="nav nav-stacked">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="settings.html">Password</a></li>
+            <li><a href="settings.html">Email</a></li>
+            <li><a href="settings.html">Delivery Options</a></li>
+            <li><a href="settings.html">Email Format</a></li>
+            <li><a href="settings.html">Secret Question</a></li>
+            <li><a href="logout.html">Logout</a></li>
+          </ul>
+          <!-- <div class="accordion" id="accordion2">
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Accordion</a>
+              </div>
+              <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">Content here for links, ads, etc.. </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Accordion</a>
+              </div>
+              <div id="collapseTwo" class="accordion-body collapse">
+                <div class="accordion-inner">Another collapse panel. Content here for links, ads, etc.. </div>
+              </div>
+            </div>
+          </div> --><!--/acc-->
+          <hr>
+        </div><!--/panel body-->
+      </div><!--/panel-->
+    </div><!--/end left column-->
+
+    <!-- right content column-->
+    <div class="col-md-10" id="content">
+      <!-- Password -->
+      <div class="panel">
+        <div class="panel-heading" style="background-color:#111;color:#fff;">Password</div>   
+        <div class="panel-body">
+          <div class="account-wall">
+              <form class="form-signin" action="settings.html">
+              <label>Present Password</label>
+              <input type="text" class="form-control" placeholder="Present Password" required autofocus>
+              <hr/>
+              <label>New Password</label>
+              <input type="text" class="form-control" placeholder="New Password" required autofocus>
+              <input type="text" class="form-control" placeholder="Confirm New Password" required>
+              <hr/>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
+              <hr/>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Cancel</button>
+              <label class="checkbox pull-left">
+                  <input type="checkbox" value="remember-me">
+                  Remember me
+              </label>
+              <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+              </form>
+          </div>
+        </div><!--/panel-body-->
+      </div><!--/panel-->
+      <!-- Email -->
+      <div class="panel">
+        <div class="panel-heading" style="background-color:#111;color:#fff;">Email</div>   
+        <div class="panel-body">
+          <div class="account-wall">
+              <form class="form-signin" action="settings.html">
+              <label>Current Email</label>
+              <p>chrisk@mailserviceslc.com</p>
+              <hr/>
+              <label>New Email</label>
+              <input type="text" class="form-control" placeholder="New Email" required autofocus>
+              <input type="text" class="form-control" placeholder="Confirm New Email" required>
+              <hr/>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Change Email</button>
+              <hr/>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Cancel</button>
+              <label class="checkbox pull-left">
+                  <input type="checkbox" value="some-email-status">
+                  aux status input
+              </label>
+              <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+              </form>
+          </div>
+        </div><!--/panel-body-->
+      </div><!--/panel-->
+      <!-- Delivery -->
+      <div class="panel">
+        <div class="panel-heading" style="background-color:#111;color:#fff;">Delivery Options</div>   
+        <div class="panel-body">
+          <div class="account-wall">
+              <form class="form-signin" action="settings.html">
+
+<label class="checkbox-inline">
+  <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+</label>
+<label class="checkbox-inline">
+  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+</label>
+<label class="checkbox-inline">
+  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+</label>
+
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    Option two can be something else and selecting it will deselect option one
+  </label>
+</div>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">
+                  Update Delivery</button>
+              <label class="checkbox pull-left">
+                  <input type="checkbox" value="some-email-status">
+                  aux status input
+              </label>
+              <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+              </form>
+          </div>
+        </div><!--/panel-body-->
+      </div><!--/panel-->
+
+
+    </div> <!--/end right column-->
+  </div>
+</div> <!--div class="container" -->
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">© Mail Services, LLC 2007-2014</div>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript jQuery code from Bootply.com editor -->
+<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript jQuery code from Bootply.com editor -->
+<script type='text/javascript'>
+
+$(document).ready(function() {
+  $('#sidebar').affix({
+    offset: {
+      top: 230,
+      bottom: 100
+    }
+  });	
+  $('#midCol').affix({
+    offset: {
+      top: 230,
+      bottom: 100
+    }
+  });	
+});
+</script>
+
+    </body>
+</html>

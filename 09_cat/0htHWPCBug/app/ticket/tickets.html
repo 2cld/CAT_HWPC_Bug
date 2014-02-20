@@ -1,0 +1,146 @@
+﻿<section class="mainbar" data-ng-controller="tickets as vm">
+    <section class="matter">
+<div class="container-fluid">
+  <div class="no-gutter row">
+
+    <!-- right content column-->
+    <div class="col-md-12" id="hwpc-ticket-view">
+      <!-- Password -->
+      <div class="panel" data-ng-repeat="i in vm.tickets">
+      <!--
+        <div class="panel-heading">
+          <button class="btn btn-lg btn-success"><span class="icon-phone"> {{ i.contact.phone }}</span> Call</button>
+          <button class="btn btn-lg btn-primary"><span class="icon-map-marker">  {{ i.srvLoc.address }}</span> Map</button>
+        </div>   
+        -->
+        <div class="panel-body">
+          <div class="account-wall">
+
+            <div class="ticket-print row ">
+                <div class="col-md-8">
+                    <div class="row hidden-xs hidden-sm">
+                        <div class="ticket-icon col-md-3"><img src="./content/images/Hawk.jpg" alt="Alternate Text" /><br />Ticket ID: {{i.id}}</div>
+                        <div class="ticket-client col-md-9">
+                            <div class="ticket-info row">
+                                <div class="ticket-hwpc-title col-md-12 text-center">
+                                    <h5>Hawkeye West Pest Control</h5>
+                                </div>
+                                <div class="ticket-hwpc-banner col-md-12">
+                                    <div class="row">
+                                        <small class="col-md-4 text-left">
+                                            1795 Park Circle<br>
+                                            Clarion, Iowa 50525
+                                        </small>
+                                        <small class="col-md-4 text-center"><br/>Lic # 02318-000</small>
+                                        <small class="col-md-4 text-right">
+                                            515-532-3499<br>
+                                            800-467-5231
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    Service Location
+                                    <div class="row ticket-client-service">
+                                        <div class="col-md-12">{{ i.srvLoc.firstName }} {{ i.srvLoc.lastName }}</div>
+                                        <div class="col-md-12">{{ i.srvLoc.address }}</div>
+                                        <div class="col-md-12">{{ i.srvLoc.city }}, {{ i.srvLoc.state }}  {{ i.srvLoc.zip }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    Bill To Location
+                                    <div class="row ticket-client-billing">
+                                        <div class="col-md-12">{{ i.billTo.firstName }} {{ i.billTo.lastName }}</div>
+                                        <div class="col-md-12">{{ i.billTo.address }}</div>
+                                        <div class="col-md-12">{{ i.billTo.city }}, {{ i.billTo.state }}  {{ i.billTo.zip }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row hidden-xs hidden-sm">
+                        <div class="ticket-serviceline col-md-12">Type of Service: {{ i.srv.dec }}</div>
+                    </div>
+                    <div class="row hidden-xs hidden-sm">
+                        <div class="ticket-noteline col-md-12">Note: {{ i.srv.note }}</div>
+                    </div>
+                    <div class="row hidden-xs hidden-sm">
+                        <div class="col-md-12">
+                            <div class="row ticket-noteline">
+                                <div class="col-md-6"></div>
+                                <div class="col-md-3 ticket-note-box"></div>
+                                <div class="col-md-1 ticket-note-box"></div>
+                                <div class="col-md-1 ticket-note-box"></div>
+                                <div class="col-md-1 ticket-note-box"></div>
+                            </div>
+                            <div class="row ticket-noteline">
+                                <div class="col-md-6"></div>
+                                <div class="col-md-3 ticket-note-box"></div>
+                                <div class="col-md-1 ticket-note-box"></div>
+                                <div class="col-md-1 ticket-note-box"></div>
+                                <div class="col-md-1 ticket-note-box">{{ i.serviceTech }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Begin HWPCBug Ticket Summary -->
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    <div class="row">
+                        <div class="col-xs-6">Date: {{ i.srv.date }}</div>
+                        <div class="col-xs-6">Time: {{ i.srv.time }}</div>
+                     </div>
+                    <div class="row">
+                        <div class="col-xs-4">Route:</div>
+                        <div class="col-xs-8">{{ i.routeId }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Contact:</div>
+                        <div class="col-xs-8">{{ i.contact.name}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Phone:</div>
+                        <div class="col-xs-8 pull-right">{{ i.contact.phone}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6"><button class="btn button-primary">Service Fee:</button></div>
+                        <div class="col-xs-6">$ {{ i.srv.fee }}</div>
+                    </div>
+                    <div class="row">                    
+                        <div class="col-xs-6"> {{ i.srv.taxRate }}% Tax:</div>
+                        <div class="col-xs-6">$ {{ i.srv.tax }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">Total Due:</div>
+                        <div class="col-xs-6">$ {{ i.srv.total }}</div>
+                    </div>
+                    <div class="row"><hr/></div>
+                    <div class="ticket-acct-status row">
+                        <div class="col-xs-5 ">
+                            <button class="btn btn-success"><input  type="radio" name="srvFinStatus" id="srvRadioStatusPaid" value="paid"> PAID </button>
+                        </div>
+                        <div class="col-xs-4 col-xs-offset-1">
+                            <button class="btn btn-danger"><input  type="radio" name="srvFinStatus" id="srvRadioStatusCharge" value="charge"> CHARGE </button>
+                        </div>
+                    </div>
+                    <div class="row"><hr/></div>
+                    <div class="row">
+                        <div class="col-xs-4 col-xs-offset-1">
+                            <button class="btn btn-warning"><input  type="radio" name="srvExit" id="radio1" value="option1">Follow Up</button>
+                        </div>
+                        <div class="col-xs-4 col-xs-offset-1">
+                            <button class="btn btn-primary"><input  type="radio" name="srvExit" id="radio2" value="option2">DONE</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End HWPCBug Ticket Summary -->
+            </div>
+
+          </div>
+        </div><!--/panel-body-->
+      </div><!--/panel-->
+    </div> <!--/end right column-->
+  </div><!--div class="no-gutter row" -->
+</div> <!--div class="container" -->                    
+
+    </section>
+</section>

@@ -1,0 +1,75 @@
+﻿<section class="mainbar" data-ng-controller="sessions as vm">
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="form-search">
+                    <input class="input-xlarge search-query"
+                           data-ng-model="vm.sessionsSearch"
+                           data-ng-keyup="vm.search($event)"
+                           placeholder="Filter route, contact, address, person"/>
+                    <div class="btn-group pull-right">
+                        <div class="btn-group">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                Route
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- dropdown menu links -->
+                                <li><a href="#">Route 1</a></li>
+                                <li><a href="#">Route 2</a></li>
+                                <li><a href="#">Route 3</a></li>
+                            </ul>
+                        </div>
+                        <!-- Single button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Action <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-info"
+                           data-ng-click="vm.refresh()"><i class="icon-refresh"></i><span>Refresh</span></a>
+                        <a class="btn btn-info"
+                           href="#/session/new"><i class="icon-plus"></i><span>Add Session</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="widget worange">
+                    <div data-cc-widget-header 
+                         title="{{vm.title}}"
+                         subtitle="{{vm.filteredSessions.length}} / {{vm.sessions.length}}  Route: 11">
+                    </div>
+                    <div class="widget-content user">
+                        <div class="padd" data-ng-repeat="s in vm.filteredSessions"
+                             data-ng-click="vm.gotoSession(s)">
+                            <div class="user" title="Go to session details">
+                                <!--
+                                <img data-cc-img-person="{{s.speaker.imageSource}}"
+                                     class="img-polaroid user-pic" />-->
+                                <div class="user-details">
+                                    <small>{{s.timeSlot.name}}</small> at <small>{{s.room.name}}</small>
+                                    <small class="right hidden-phone">{{s.level}}</small>
+                                    <small class="right hidden-phone">{{s.track.name}}</small>
+                                    <small class="right hidden-phone">{{s.code}}</small>
+                                    <h3>{{s.title}}</h3>
+                                    <h6>{{s.speaker.fullName}}</h6>
+                                    <small class="text-subtle hidden-phone">{{s.tagsFormatted}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-foot">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

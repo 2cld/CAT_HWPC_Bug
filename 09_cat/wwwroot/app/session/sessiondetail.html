@@ -1,0 +1,90 @@
+﻿<section class="mainbar" data-ng-controller="sessiondetail as vm">
+    <section class="matter">
+        <div class="container-fluid">
+            <div>
+                <button class="btn btn-info"
+                        data-ng-click="vm.goBack()">
+                    <i class="icon-hand-left"></i>Back
+                </button>
+                <button class="btn btn-info"
+                        data-ng-click="vm.cancel()"
+                        data-ng-disabled="!vm.canSave">
+                    <i class="icon-undo"></i>Cancel
+                </button>
+                <button class="btn btn-info"
+                        data-ng-click="vm.save()"
+                        data-ng-disabled="!vm.canSave">
+                    <i class="icon-save"></i>Save
+                </button>
+                <button class="btn btn-danger" 
+                        data-ng-click="vm.deleteSession()">
+                    <i class="icon-trash"></i>Delete
+                </button>                
+                <span data-ng-show="vm.hasChanges"
+                      class="dissolve-animation ng-hide">
+                    <i class="icon-asterisk icon-asterisk-large"></i>
+                </span>
+            </div>
+            <div class="widget wgreen">
+                <div data-cc-widget-header title="Edit {{vm.session.title || 'New Session'}}"></div>
+                <div class="widget-content user">
+                    <div>
+                        <label>Title</label>
+                        <input data-ng-model="vm.session.title"
+                               placeholder="Session title" data-z-validate />
+                    </div>
+                    <div>
+                        <div>
+                            <label>Track</label>
+                            <select data-ng-options="t.name for t in vm.tracks"
+                                    data-z-validate
+                                    data-ng-model="vm.session.track"></select>
+                        </div>
+                        <div>
+                            <label>Time slot</label>
+                            <select data-ng-options="ts.name for ts in vm.timeslots"
+                                    data-z-validate
+                                    data-ng-model="vm.session.timeSlot"></select>
+                        </div>
+                        <div>
+                            <label>Room</label>
+                            <select data-ng-options="r.name for r in vm.rooms"
+                                    data-z-validate
+                                    data-ng-model="vm.session.room"></select>
+                        </div>
+                        <div>
+                            <label>Code</label>
+                            <input data-ng-model="vm.session.code"
+                                   placeholder="Code" />
+                        </div>
+                        <div>
+                            <label>Level</label>
+                            <input data-ng-model="vm.session.level"
+                                   placeholder="Level" />
+                        </div>
+                        <div>
+                            <label>Tags</label>
+                            <input data-ng-model="vm.session.tagsFormatted"
+                                   placeholder="Tags" />
+                        </div>
+                        <div>
+                            <img data-cc-img-person="{{vm.session.speaker.imageSource}}"
+                                 class="img-polaroid" />
+                            <address>{{vm.session.speaker.fullName}}</address>
+                            <select data-ng-options="speaker.fullName for speaker in vm.speakers"
+                                    data-z-validate
+                                    data-ng-model="vm.session.speaker"></select>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Description</label>
+                            <input data-ng-model="vm.session.description"
+                                   placeholder="Enter description" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
