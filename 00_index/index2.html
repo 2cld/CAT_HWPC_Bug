@@ -114,11 +114,78 @@
 					<li>Verify push <a href="https://github.com/christrees/CAT_HWPC_Bug"  target="_blank">https://github.com/christrees/CAT_HWPC_Bug</a></li>
 				</ul>
 			</li>
-
+			<li>Post on cat9.com
+				<ul>
+					<li>ssh cat@cat9.com</li>
+					<li>cd /home3/cat/public_html/11_CAT_Services</li>
+					<li>cat@cat9.com [~/public_html/11_CAT_Services]# git clone https://github.com/christrees/CAT_HWPC_Bug.git</li>
+					<li>Verify <a target="_blank" href="http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index2.html">http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index2.html</a></li>
+				</ul>
+			</li>
 		</ol>
 	</li>
 	<hr/><li><b class="llstodo" >Milestone 3: Contacts</b> - Goal: Put Contact table association into the Ticket Table - Status: TODO<hr/>Get a one to one entity relationship while also creating a Contacts table and view with nav and editing.
 		<ol>Steps
+			<li>We are going to use the Person model as Contact in Ticket.  This will be same way Session uses Person as a Speaker.</li>
+			<li>Add Contact to Ticket as public virtual Person and a public int ContactId into Ticket</li>
+			<li>Add an ICollection of Ticket called ContactTickets to Person so we have nav from Person to Tickets</li>
+			<li>Add TicketConfiguration.cs to DataAccess and call the model in CodeCamperDbContext (line 27)</li>
+			<li>Now create the seed in Configurations.cs</li>
+			<li>PM> add-migration -ConfigurationTypeName CC.Web.DataMigrations.Configuration "AddContact2Ticket"</li>
+			<li>PM> update-database -ConfigurationTypeName CC.Web.DataMigrations.Configuration -Verbose</li>
+			<li>Had some errors deciced to correct by cleaing everything to start over... deleted the CodeCamper.mdf file started getting db attach errors... this is a know issue as MSSQL was attached... short answer is I need to get EF configured so I can do this clean</li>
+			<li><hr/>Getting automatic migrations othe EF stuff configured<hr/>
+				<ul>
+					<li>Web.config - Setup DefaultConnection to point to CatTest.mdf file</li>
+					<li>CodeCamperDbContext.cs - Use DefaultConnection for nameOrConnectionString</li>
+				</ul>
+			</li>
+			<li>Well... I got totally lost in something... so I Reset back to the Milestone 2 checkin and started again.  I repeted the same process up to the update-database being careful to make sure stuff worked.  It ended up being lots of small stuff, but ultimately the Error: "Unable to determine the principal end of the 'CC.DataAccess.Person_ContactTickets' relationship. Multiple added entities may have the same primary key." was due to my Seed not running.  The onlything left in the in the <a target="_blank" href="catnote001.html">git stash</a> that I might want to use is changing the       : base(nameOrConnectionString: "CodeCamper") { } on line 11.</li>
+			<li>This is working now, so I want to check this in and drop the stash.  The other things I was attempting to do in the stash was to setup various auto-migrations which I should re-visit as a separate milestone.</li>
+			<li>Visual Studio Team Checkin
+				<ul>
+					<li>Team Explorer -> Changes -> Untraced Files (4) click Add All</li>
+					<li>Commit Message -> Milestone 3: Contacts</li>
+					<li>Click Commit</li>
+					<li>Click Sync link, which takes you to Unsynced Commits</li>
+					<li>Click Sync</li>
+					<li>Should be successful and the Outgoing commit will disappear</li>
+					<li>Go to <a target="_blank" href="https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/_build">https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/_build</a>.  The commit should fire off a build that deploys to <a target="_blank" href="http://hwp.azurewebsites.net/">http://hwp.azurewebsites.net/</a></li>
+					<li>The build will take a bit, but appears in Queued, then appears in Deployed, refresh till you see Succeeded</li>
+					<li>Deployment hwp_CD_20140222.1</li>
+					<li>Go to <a target="_blank" href="http://hwp.azurewebsites.net/#/">http://hwp.azurewebsites.net/#/</a> should see nothing as I don't have the db setup correctly.  If you go to tickets it will attempt the load and you'll get lots of db error toast</li>
+					<li>To build and test locally
+						<ul>
+							<li>Team Explorer -> Incomming Commits click Pull</li>
+							<li>It will probably run now, but you can rebuild the db via</li>
+							<li>Search -> Pack (should get Package Manager Console)</li>
+							<li>Delete the migration so it will rebuild</li>
+							<li>Delete the CodeCamper.mdf file (make sure MSSQL is not attached to the file by deleting the connection if it exists or all hell breaks loose)</li>		
+							<li>PM> add-migration -ConfigurationTypeName CC.Web.DataMigrations.Configuration "AddContact2Ticket"</li>
+							<li>PM> update-database -ConfigurationTypeName CC.Web.DataMigrations.Configuration -Verbose</li>
+							<li>Run App...</li>
+						</ul>
+					</li> 
+				</ul>
+			</li>
+			<li>Git this document up on catmini
+				<ul>
+					<li>cd /Users/cat/Sites/11_CAT_Services/CAT_HWPC_Bug/</li>
+					<li>git add .</li>
+					<li>git commit -m "RESET index2 Milestone: 2"</li>
+					<li>git push -u origin master</li>
+					<li>Verify push <a href="https://github.com/christrees/CAT_HWPC_Bug"  target="_blank">https://github.com/christrees/CAT_HWPC_Bug</a></li>
+				</ul>
+			</li>
+			<li>Post on cat9.com
+				<ul>
+					<li>ssh cat@cat9.com</li>
+					<li>cd /home3/cat/public_html/11_CAT_Services</li>
+					<li>cat@cat9.com [~/public_html/11_CAT_Services]# git clone https://github.com/christrees/CAT_HWPC_Bug.git</li>
+					<li>Verify <a target="_blank" href="http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index2.html">http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index2.html</a></li>
+				</ul>
+			</li>
+
 			<li>Last Step</li>
 		</ol>
 	</li>

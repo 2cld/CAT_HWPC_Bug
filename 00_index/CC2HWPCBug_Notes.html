@@ -1,0 +1,98 @@
+CC2HWPCBug_Notes.html
+<hr/>
+From Notes on macmini - Feb 1-18 2014
+<hr/><pre>
+CodeCamper to HWPCBug Site
+
+First, I had to create a whole new user in the CAT_MSWin81EnterpriseVM
+cat8dev@live.com - Time2Invest
+
+Then Install VisualStudio via the DVD Drive D:\VS2013_RTM_ULT_ENU iso 
+CATMINI Users\cat\sites\10_Downloads\en_visual_studio_ultimate_2013_x86_dvd_3175319.iso
+(had to get cat8deve (admin on CAT_MSWin81Enterprise) permission to install… so have no clue if the same bits are shared)
+
+Fire VS2013 up and copy over CC.Web in build-apps-angular-breeze-part2\10-build-apps-angular-breeze-part2-m9-exercise-file\after\CC.Web to
+C:\Users\cat8d_000\Documents\Visual Studio 2013\Projects\CC.Web
+
+http://pluralsight.com/training/Courses/ExerciseFiles/build-apps-angular-breeze-part2 plural sight source
+Note: the hot towel series leading to this...
+1 - Single Page Apps JumpStart 
+2 - Building Apps with Angular and Breeze - Part 1
+3 - Building Apps with Angular and Breeze - Part 2
+
+Open Solution, Build (twice once to get the NuGet to load, once to get a clean build)
+Launch…. Looks as expected.
+
+So let make sure we can build the db connection.  I had lots of issues with CE so I want to remove all of that from WebConfig… but not sure
+
+Add EntityFramework via NuGet Package Manager…
+Add Order.cs with simple structure
+
+Add a new table
+===========
+Add - CC.Model\Order.cs (Description of structure)
+Add - CC.Web\Controllers\BreezeController.cs (line 53) (Structure of API return)
+        [HttpGet]
+        public IQueryable<Order> Orders()
+        {
+            return _repository.Orders;
+        }
+Add - CC.DataAccess\CodeCamperDbContext.cs (EF trigger to create the table)
+        public DbSet<Order> Orders { get; set; }
+Add - CC.DataAccess\CodeCamperRepository.cs (EF reflection of API return)
+        public IQueryable<Order> Orders
+        {
+            get { return Context.Orders; }
+        }
+Add - CC.Web\app\services\datacontext.js (line 19) (Setup the repo name)
+Prime the table (if needed) by calling in the prime function (line 104)
+Add order to entity Names in model.js (line 24) (create client side entity)
+register order to metadataStore in model.js (line 42) (suck the structure from metadata)
+write function registerOrder (line 103)
+Create and add repository.order.js and add to index.html (setup so client can access via repo pattern)
+
+The iteration for db init became:
+Delete App_Data/CodeCamper.sdf
+Delete DataContexts/OrderDbMigrations/ (all migrations.cs)
+Edit Configurations.cs to put in seed data you are working on
+PM> add-migration -ConfigurationTypeName CC.Web.DataContexts.OrderDbMigrations.Configuration "Initial Create"
+PM> update-database -Verbose
+
+Now add the navigation and view into client side stuff
+=========
+Add the View Model (copy order structure and rename to ticket)
+Add the 3 (ticket, ticket detail, ticket search) Navigation config.route.js
+Add controllers js to index.html
+
+
+----- OLDER NOTES -----
+
+Now Setup Migrations and Seed via (Migrations and Seeding under Identity and Security) in ASP.NET MVC 5 Fundamentals by Scott Allen
+Add Folder DataContexts to CC.Web
+Add OrderDb.cs that derives from DbContext, use CC.Model.Order to create dbset
+Enable Migrations
+PM> enable-migrations - ContextTypeName OrderDb -MigrationsDirectory DataContexts\OrderDbMigrations
+That should build Configurations.cs … add seed to that
+Add Migration
+PM> add-migration -ConfigurationTypeName CC.Web.DataContexts.OrderDbMigrations.Configuration "Initial Create"
+Update Database
+PM> update-database -ConfigurationTypeName CC.Web.DataContexts.OrderDbMigrations.Configuration
+
+So I did all that… then figured out that if I take the Configuration.cs file it created and point that to CC.DataAccess.CodeCamperDbContext… I could get things to work as I expected… so went with that… I had to delete all the Migrations and start again… but that works…
+
+Then Add the seed to Orders in the Configuration… update-database and it'll run the seed…
+Now run the site, go to http://localhost:45095/breeze/breeze/orders and see the data… FINALLY….
+
+Now… I need to re-work the angular side… get bootstrap 3 going… blah blah… but I had a lot of that going…
+
+Now Angular code mods…
+First the icons… then the stuff in layout (go through all files and put new display text up)
+Now add a new menu item Orders (copy the folder Session and start the rename of stuff…)
+Add the 3 routes to config.route.js
+
+Fix stuff until it works…
+
+Now at some point the old data stopped working, it may have been the migrations stuff… but when it stopped I decided to the the db out of the ce crap.
+First I attached Person to Order and updated the seed.
+
+</pre>
