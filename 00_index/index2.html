@@ -124,7 +124,7 @@
 			</li>
 		</ol>
 	</li>
-	<hr/><li><b class="llstodo" >Milestone 3: Contacts</b> - Goal: Put Contact table association into the Ticket Table - Status: TODO<hr/>Get a one to one entity relationship while also creating a Contacts table and view with nav and editing.
+	<hr/><li><b class="llsdone" >Milestone 3: Contacts</b> - Goal: Put Contact table association into the Ticket Table - Status: DONE<hr/>Get a one to one entity relationship while also creating a Contacts table and view with nav and editing.
 		<ol>Steps
 			<li>We are going to use the Person model as Contact in Ticket.  This will be same way Session uses Person as a Speaker.</li>
 			<li>Add Contact to Ticket as public virtual Person and a public int ContactId into Ticket</li>
@@ -140,7 +140,7 @@
 					<li>CodeCamperDbContext.cs - Use DefaultConnection for nameOrConnectionString</li>
 				</ul>
 			</li>
-			<li>Well... I got totally lost in something... so I Reset back to the Milestone 2 checkin and started again.  I repeted the same process up to the update-database being careful to make sure stuff worked.  It ended up being lots of small stuff, but ultimately the Error: "Unable to determine the principal end of the 'CC.DataAccess.Person_ContactTickets' relationship. Multiple added entities may have the same primary key." was due to my Seed not running.  The onlything left in the in the <a target="_blank" href="catnote001.html">git stash</a> that I might want to use is changing the       : base(nameOrConnectionString: "CodeCamper") { } on line 11.</li>
+			<li>Well... I got totally lost in something... so I Reset back to the Milestone 2 checkin and started again.  I repeted the same process up to the update-database being careful to make sure stuff worked.  It ended up being lots of small stuff, but ultimately the Error: "Unable to determine the principal end of the 'CC.DataAccess.Person_ContactTickets' relationship. Multiple added entities may have the same primary key." was due to my Seed not running.  The onlything left in the in the <a target="_blank" href="catnote001.html">git stash</a> (see <a target="_blank" href="http://git-scm.com/docs/git-stash">git stash</a> command) that I might want to use is changing the       : base(nameOrConnectionString: "CodeCamper") { } on line 11.</li>
 			<li>This is working now, so I want to check this in and drop the stash.  The other things I was attempting to do in the stash was to setup various auto-migrations which I should re-visit as a separate milestone.</li>
 			<li>Visual Studio Team Checkin
 				<ul>
@@ -172,7 +172,7 @@
 				<ul>
 					<li>cd /Users/cat/Sites/11_CAT_Services/CAT_HWPC_Bug/</li>
 					<li>git add .</li>
-					<li>git commit -m "RESET index2 Milestone: 2"</li>
+					<li>git commit -m "Milestone: 3 Contacts"</li>
 					<li>git push -u origin master</li>
 					<li>Verify push <a href="https://github.com/christrees/CAT_HWPC_Bug"  target="_blank">https://github.com/christrees/CAT_HWPC_Bug</a></li>
 				</ul>
@@ -180,18 +180,102 @@
 			<li>Post on cat9.com
 				<ul>
 					<li>ssh cat@cat9.com</li>
-					<li>cd /home3/cat/public_html/11_CAT_Services</li>
-					<li>cat@cat9.com [~/public_html/11_CAT_Services]# git clone https://github.com/christrees/CAT_HWPC_Bug.git</li>
+					<li>cd /home3/cat/public_html/11_CAT_Services/CAT_HWPC_Bug</li>
+					<li>git pull</li>
 					<li>Verify <a target="_blank" href="http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index2.html">http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index2.html</a></li>
 				</ul>
 			</li>
-
 			<li>Last Step</li>
 		</ol>
 	</li>
-	<hr/><li><b class="llstodo" >Milestone 4: Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
+	<hr/><li><b class="llsawip" >Milestone 4: UI</b> - Goal: Candy up the UI to HWPC - Status: AWIP<hr/>Basically I want to drop in a custom template for HWPC.  Ideally this would just be a css change, but I'll be going through the steps manually to get the feel of what we could do template wise with build directives.
+		<ol>Steps
+			<li>In app/layout/topnav.html change title, comment out things we don't need</li>
+			<li>change ccfavicon.ico and favicon.ico to the bug one (just file replacement / rename)</li>
+			<li>change content/images/icon.png bug one</li>
+			<li>Add link rel="shortcut icon" href="bug.ico" in index.html</li>
+			<li>Add existing item bug.ico to project</li>
+			<li>In app/config.js change CC to HWPC</li>
+			<li>In app/dashboard/dashboard.html comment out stuff we don't want</li>
+			<li>Add the Tickets Icon and Count stuff to dashboard.js (line 14, 40 and 57)</li>
+			<li>Now I want to put in ticket detail that looks like a ticket.  The view I created in <a target="_blank" href="../09_cat/wf_HWPCBug/docview.html">../09_cat/09_cat/wf_HWPCBug/docview.html</a> was created with bootstrap 3</li>
+			<li>Pull in bootstrap 3 NuGet -> Bootstrap for MVC 5.1</li>
+			<li>This is going to mess up some of the css... so we'll need to fix as we see it... but first attempt to pull in the bs3 docview.html into app/ticket/ticketdetail.html</li>
+			<li>Wow... that sort of worked... need to start connecting up the bindings... but heck... not bad... I'm going to attempt to resist messing with the css and let CK do that...</li>
+			<li>Start in on the bindings... we don't have all the data for those bindings so we'll do some kind of fake in the controller to get going.  We can then go back to EF code-first to add the backend data structure and seed it.</li>
+			<li>Add the Hawk.jpg into content/images/Hawk.jpg</li>
+			<li>bind Ticket ID: {{vm.ticket.id}}</li>
+			<li>bind Contact: {{vm.ticket.contact.firstName}}</li>
+			<li>Figure out a dropdown edit for contact</li>
+			<li>So... we'll do this the same way they did speakers.  I had exposed Persons as iQueryable, but I did not create a new repository, so I'll do that</li>
+			<li>Create repository.contact.js based off of repository.speaker.js</li>
+			<li>Add entityName to app/services/model.js line 19</li>
+			<li>Add createNullo to app/services/model.js line 51 (this is for display when it is null)</li>
+			<li>Add this.isContact = false to app/services/model.js line 73</li>
+			<li>Add repoNames to app/services/datacontext.js line 19</li>
+			<li>Add to load to app/services/datacontext.js line 107</li>
+			<li>Add to personEntityName to app/services/datacontext.js line 134</li>
+			<li>Add || changedProp === 'isSpeaker' to app/services/datacontext.js line 192</li>
+			<li>Add IQueryable Contacts to BreezeController.cs line 41</li>
+			<li>Add IQueryable Contacts to CodeCamperRepository line 39</li>
+			<li>Now, I don't think I changed anything in the data model, so lets see if this builds and runs</li>
+			<li>Error in ticketdetails.js - woops I wanted vm.contacts on line 100</li>
+			<li>Error unknown provider - woops forgot to add repository.speaker.js to index.html</li>
+			<li>Error unable to locate propery isContact - woops forgot to add this.isContact = false to app/services/model.js line 73</li>
+			<li>The drop down was not populating with contacts... then I messed with stuff and broke something</li>
+			<li>So CRAP... git stash (back to Milestone 3: Contacts)</li>
+			<li>That was a disaster... shit's not working and now I suspect somehting in the Tickets table stuff either metadata or breeze or breeze is confused about what the metadata... or somehow not loading somthing...</li>
+			<li>I went to the other user and downloaded Milestone 3: Contacts repo and it had something 'like' the error but with Ticket's instead of Rooms.  So, I'm going to attempt to backtrace the Milestone 3 steps. </li>
+			<li>WHAT THE F... was just setting up to backtrace... I decided to go nuke all the Browser stuff (Local Storage, Session Storage, Cookies) and it started to work... CRAP...</li>
+			<li>Switching back to other user...cat8dev@live.com from cat8deve@live.com</li>
+			<li>Ok... it's back to what it was... going to commit right now</li>
+			<li>Visual Studio Team Checkin
+				<ul>
+					<li>Team Explorer -> Changes -> Untraced Files (77) click Add All</li>
+					<li>Included Changes (139)</li>
+					<li>Commit Message -> Milestone 4: UI</li>
+					<li>Click Commit</li>
+					<li>Click Sync link, which takes you to Unsynced Commits</li>
+					<li>Click Sync</li>
+					<li>Should be successful and the Outgoing commit will disappear</li>
+					<li>Go to <a target="_blank" href="https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/_build">https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/_build</a>.  The commit should fire off a build that deploys to <a target="_blank" href="http://hwp.azurewebsites.net/">http://hwp.azurewebsites.net/</a></li>
+					<li>The build will take a bit, but appears in Queued, then appears in Deployed, refresh till you see Succeeded</li>
+					<li>Deployment hwp_CD_20140223.1</li>
+					<li>Build FAILED... something with the nuget crap</li>
+					<li>Build fails local also... again with the .nuget\nuget.targets file not found</li>
+
+					<li>Have to deal with this later...</li>
+				</ul>
+			</li>
+			<li>Git this document up on catmini
+				<ul>
+					<li>cd /Users/cat/Sites/11_CAT_Services/CAT_HWPC_Bug/</li>
+					<li>git add .</li>
+					<li>git commit -m "Milestone: 3 Contacts"</li>
+					<li>git push -u origin master</li>
+					<li>Verify push <a href="https://github.com/christrees/CAT_HWPC_Bug"  target="_blank">https://github.com/christrees/CAT_HWPC_Bug</a></li>
+				</ul>
+			</li>
+			<li>Post on cat9.com
+				<ul>
+					<li>ssh cat@cat9.com</li>
+					<li>cd /home3/cat/public_html/11_CAT_Services/CAT_HWPC_Bug</li>
+					<li>git pull</li>
+					<li>Verify <a target="_blank" href="http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index2.html">http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index2.html</a></li>
+				</ul>
+			</li>
+		</ol>
+	</li>
+		<hr/><li><b class="llstodo" >Milestone 5: Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
 		<ol>Steps
 			<li>Last Step</li>
+		</ol>
+	</li>
+	</li>
+		<hr/><li><b class="llstodo" >Milestone 6: Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
+		<ol>Steps
+			<li>Last Step</li>
+			<li>Setup EF Initializer http://www.entityframeworktutorial.net/code-first/database-initialization-strategy-in-code-first.aspx</li>
 		</ol>
 	</li>
 	<hr/><hr/>THE END<hr/><hr/>
