@@ -243,15 +243,33 @@
 					<li>Deployment hwp_CD_20140223.1</li>
 					<li>Build FAILED... something with the nuget crap</li>
 					<li>Build fails local also... again with the .nuget\nuget.targets file not found</li>
-
 					<li>Have to deal with this later...</li>
+					<li>So, it's later... here is what I did
+						<ul>
+							<li>RightClick on Solution -> Enable NuGet Package Restore (this should re-create the .nuget)</li>
+							<li>RightClick on CC.Model -> Reload</li>
+							<li>RightClick on CC.Model -> Reload</li>
+							<li>RichtClick on Solution -> Build</li>
+							<li>Verify things run again...</li>
+						</ul>
+					</li>
+					<li>Team Explorer -> Changes -> Untraced Files (3 .nuget) click Add All</li>
+					<li>Included Changes (30)</li>
+					<li>Commit Message -> Milestone 4: UI - Add Nuget to Fix Build</li>
+					<li>Click Commit</li>
+					<li>Click Sync link, which takes you to Unsynced Commits</li>
+					<li>Click Sync</li>
+					<li>Should be successful and the Outgoing commit will disappear</li>
+					<li>Go to <a target="_blank" href="https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/_build">https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/_build</a>.  The commit should fire off a build that deploys to <a target="_blank" href="http://hwp.azurewebsites.net/">http://hwp.azurewebsites.net/</a></li>
+					<li>Deployment hwp_CD_20140224.1</li>
+					<li>Yea... it worked... DB on site is still messed up... lets fix that next</li>
 				</ul>
 			</li>
 			<li>Git this document up on catmini
 				<ul>
 					<li>cd /Users/cat/Sites/11_CAT_Services/CAT_HWPC_Bug/</li>
 					<li>git add .</li>
-					<li>git commit -m "Milestone: 3 Contacts"</li>
+					<li>git commit -m "Milestone 4: UI - Add Nuget to Fix Build"</li>
 					<li>git push -u origin master</li>
 					<li>Verify push <a href="https://github.com/christrees/CAT_HWPC_Bug"  target="_blank">https://github.com/christrees/CAT_HWPC_Bug</a></li>
 				</ul>
