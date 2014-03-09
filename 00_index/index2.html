@@ -188,7 +188,7 @@
 			<li>Last Step</li>
 		</ol>
 	</li>
-	<hr/><li><b class="llsawip" >Milestone 4: UI</b> - Goal: Candy up the UI to HWPC - Status: AWIP<hr/>Basically I want to drop in a custom template for HWPC.  Ideally this would just be a css change, but I'll be going through the steps manually to get the feel of what we could do template wise with build directives.
+	<hr/><li><b class="llsdone" >Milestone 4: UI</b> - Goal: Candy up the UI to HWPC - Status: DONE<hr/>Basically I want to drop in a custom template for HWPC.  Ideally this would just be a css change, but I'll be going through the steps manually to get the feel of what we could do template wise with build directives.
 		<ol>Steps
 			<li>In app/layout/topnav.html change title, comment out things we don't need</li>
 			<li>change ccfavicon.ico and favicon.ico to the bug one (just file replacement / rename)</li>
@@ -284,16 +284,273 @@
 			</li>
 		</ol>
 	</li>
-		<hr/><li><b class="llstodo" >Milestone 5: Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
+		<hr/><li><b class="llstodo" >Milestone 5: Db on Azure</b> - Goal: Db running on Azure like local - Status: TODO<hr/>So I've got EF working locally but I PM> command line to do add-migrations and update.  I need to set up auto-migrations so they will be triggered automatically in the build.
 		<ol>Steps
+			<li>Starting from <hr/>
+<pre>$ git log
+commit 0fc41ad80cc355ba72000cc0565c4417d76821a6
+Author: CAT Windows8Dev cat8dev@live.com
+Date:   Sat Feb 22 10:26:59 2014 -0600
+
+    Milestone 3: Contacts
+</pre><hr/></li>
+		<li>I modified the following to point to local SQLExpress
+				<ul>
+					<li>Web.config line 16,  add name="DefaultConnection" connectionString="Data Source=CAT8DEVE\SQLEXPRESS;Initial Catalog=CodeCamper;Integrated Security=True;Trusted_Connection=true;" providerName="System.Data.SqlClient"</li>
+					<li>Web.config line 14, comment out the old connection</li>
+					<li>CodeCamperDbContext.cs line 12, comment out the old connection</li>
+					<li>CodeCamperDbContext.cs line 11, add "DefaultConnection</li>
+					<li>In MS SQL Server Management Tools create CodeCamper Database (use defaults)</li>
+					<li>PM> update-database -ConfigurationTypeName CC.Web.DataMigrations.Configuration -Verbose</li>
+					<li>The EF update-database populates the local CodeCamper Db</li>
+					<li>From MS SQL Server Management Tools <a target="_blank" href="http://www.mssqltips.com/sqlservertip/3035/using-the-deploy-database-to-sql-azure-wizard-in-sql-server-management-studio-to-move-to-the-cloud/">tutorial here</a>
+						<ul>
+							<li>Right-click code camper -> Deploy to Azure</li>
+							<li>Forward to Server Connection</li>
+							<li>Server: vhgopfx0dl.database.windows.net - cathwpc - Time2Invest</li>
+							<li>Should connect... Next</li>
+							<li>Click Finish</li>
+						</ul> 
+					</li>
+					<li>Now... Branch the local
+						<ul>
+							<li>Team Explorer -> Changes -> Branch: New Branch</li>
+							<li>AzureDeployDbSetupFromMilestone3</li>
+							<li>Create and Checkou</li>
+							<li>Changes</li>
+							<li>Add untracked (my create sql for db, not using)</li>
+							<li>Commit: AzureDeployMilestone3</li>
+							<li>Click Commit</li>
+						</ul>
+					</li>
+					<li>Crap... I thought the branch would push to visual-studio, but it does not let me</li>
+					<li>Looks like git and VSonline and branching have issues...</li>
+					<li>Also had some issues making the auto-build-deploy work for 'non-master, non-mainline'... so decided to put</li>
+					<li>I decided to deploy the build from VS to AzureWeb
+						<ul>
+							<li>Build and test locally...</li>
+							<li>Right-click on CC.Web -> Publish</li>
+							<li>Import -> File -> Z:\Sites\11_CAT_Services\CAT_HWPC_Bug\02_references\hwp.azurewebsites.net.PublishSettings</li>
+							<li>Publish</li>
+						</ul>
+					</li>
+					<li>That went up OK... see <a target="_blank" href="http://hwp.azurewebsites.net/">http://hwp.azurewebsites.net/</a> but I don't think it's connection to the db or something is wrong with the db</li>
+				</ul>
+			</li>
+			<li>Go To  <a target="_blank" href="http://manage.windowsazure.com">manage.windowsazure.com</a>
+				<ul>
+					<li>Try to use online manager (use firefox) but couldn't get SQL query to run</li>
+					<li>Went back to MS SQL Server Management Studio.. connect to vhgopfx0dl.database.windows.net (cathwpc)</li>
+					<li>Then I could verify db was fine... so it had to be on web side</li>
+					<li>Started to look at Web.config again... woops... connections string was attempting to attach CAT8DEVE</li>
+					<li>Use connectionString="Server=tcp:vhgopfx0dl.database.windows.net,1433;Database=CodeCamper;User ID=cathwpc@vhgopfx0dl;Password=Time2Invest;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"</li>
+					<li>Test local... THAT WORKS</li>
+					<li>Deploy website... test  <a target="_blank" href="http://hwp.azurewebsites.net/">http://hwp.azurewebsites.net/</a></li>
+					<li>!! WORKS !!</li> 
+				</ul>
+			</li>
+			<li>OK... got something working... commit this</li>
+			<li>Visual Studio Team Checkin -> Branch: AzureDeployDbSetuFromMilestone3 -> Milestone 6: Template Task
+				<ul>
+					<li>Team Explorer -> Changes -> Untraced Files (279) click Add All</li>
+					<li>Included Changes (292)</li>
+					<li>Commit Message -> Milestone 6: Template Task</li>
+					<li>Click Commit</li>
+					<li>Click Sync link, which takes you to Unsynced Commits</li>
+					<li>This is where VS/Git is messed up... I can't commit the Branch for some reason</li>
+					<li>Milestone 6: Template Task - CommitID: 66cf452b4be393b513bb0f0cbdd0f7e908d44ab5</li>
+					<li>Now I need to work at getting this branch functionally ahead of the master so I can do a stow/branch change/merge back to a master branch.  I don't want to just merge because I had broken something between this branch and the last master commit... and I'm not sure how VS will follow... so rather just re-do stuff to make this branch work.</li>
+				</ul>
+			</li>
+			<li>Well poo... I named the commit "Milestone 6: Template Task" it should be "Milestone 5: Db on Azure" guess I'll keep going on these instructions till I get to "Milestone 6: Template Task"</li>
+			<li>So now I want to 'redo' the edits I made in "Milestone 4: UI" so I'll call out deviations</li>
+			<li>Milestone 4: UI - REDO<hr/>
+				<ul>
+					<li>Steps 1 - 9 done</li>
+					<li>Hold off on Step 10 - Pull in Bootstrap 3... wait till the rest is done</li>
+					<li>The display is really jacked without BS3 but it works.</li>
+					<li>Add the Route and Contact bindings to see if the join stuff works</li>
+					<li>Ok... I added bindings and they work.  Right now the Contact does not generate until the ticket is edited.  This is the same as the Session dropdown select for speaker is generated from scanning the sessions speakerId for uniques</li>
+					<li>So this is where I was before I started to mess with models.js and added repository.contact.js</li>
+					<li>Milestone 4: UI - Step 18: Create a new repository repository.contact.js</li>
+					<li>Before I go mess with all the breeze and promise stuff... I want to make sure I can add non-complex columns through the migrations stuff</li>
+				</ul>
+			</li>
+			<li>OK... got basic edit of ticket working... commit this</li>
+			<li>Visual Studio Team Checkin -> Branch: AzureDeployDbSetuFromMilestone3 -> Milestone 6: Template Task - Commit 2
+				<ul>
+					<li>Team Explorer -> Changes -> Untraced Files (8) click Add All</li>
+					<li>Included Changes (25)</li>
+					<li>Commit Message -> Milestone 6: Template Task - Commit 2</li>
+					<li>Click Commit</li>
+					<li>Click Sync link, which takes you to Unsynced Commits</li>
+					<li>This is where VS/Git is messed up... I can't commit the Branch for some reason</li>
+					<li>Milestone 6: Template Task - Commit 2 - CommitID: 910918dc2373ea1cad6fc58621fd78d69df3875b</li>
+				</ul>
+			</li>
+			<li>Just add a new column to Tickets
+				<ul>
+					<li>Tickets needs a Comment Column</li>
+					<li>Add Comment to line 15 of CC.Model/Ticket.cs</li>
+					<li>Add comment to line 46 of CC.Web/app/services/repository.ticket.js</li>
+					<li>PM> add-migration -ConfigurationTypeName CC.Web.DataMigrations.Configuration "AddComment2Ticket"</li>
+					<li>PM> update-database -ConfigurationTypeName CC.Web.DataMigrations.Configuration -Verbose</li>
+					<li>Since I'm connected to the Azure db... I should see the column appear</li>
+					<li>That seemed to work... now lets make it an edit binding..</li>
+					<li>Add input binding to line CC.Web/app/ticket/ticketdetail.html</li>
+					<li>The Comment edit does not work...</li>
+					<li>Woops... it didn't work because I didn't clear the browser Local Storage... works fine...</li>
+				</ul>
+			</li>
+			<li>Now lets structure up ContactsId
+				<ul>Starting at Line 19 of Milestone 4: UI instructions
+					<li>Pull in CC.Web/app/services/repository.contact.js from <a target="_blank" href="https://hwpc.visualstudio.com/">https://hwpc.visualstudio.com/</a></li>
+					<li>Add repository.contact.js to index.html</li>
+					<li>Modify CC.Web/app/services/model.js
+						<ul>
+							<li>line 18 add contact: 'Person', to entityNames object</li>
+							<li>line 51 add createNullo</li>
+							<li>line 73 set local this.isContact = false for Person object</li>
+						</ul>
+					</li>
+					<li>Modify CC.Web/app/services/datacontext.js
+						<ul>
+							<li>line 19 add contact to repoNames array</li>
+							<li>line 107 Prime contact</li>
+							<li>line 134 Set Contact and Contacts as a Person type registerResourceNames function</li>
+							<li>line 192 forget the local properties when saving so breeze doesn't get confused</li>
+						</ul>
+					</li>
+					<li>Add IQueryable Contacts to BreezeController.cs line 41</li>
+					<li>Add IQueryable Contacts to CodeCamperRepository line 39 This query picks up the person as a contact</li>
+				</ul>
+			</li>
+			<li>That got us through Line 29 of Milestone 4: UI instructions
+				<ul>Mods to note from last time
+					<li>line 107 in datacontext.js I was priming service.ticket.getPartials, I removed that when putting in contact</li>
+					<li>The mods requires the db to have ContactTickets in Person so it can find people with tickets to call contacts</li>
+					<li>Error: A MergeStrategy of 'Disallowed' does not allow you to attach an entity when an entity with the same key is already attached: Person:#CC.Model-0</li>
+					<li>Looks like error is from the WIP storage stuff...</li>
+					<li>I'm going to back stuff out again</li>
+					<li>comment out repository.contact.js in index.html</li>
+					<li>comment out of prime in datacontext.js line 107</li>
+					<li>comment out of personEntityName in datacontext.js line 133</li>
+					<li>comment out of intercetpPropertyChange in datacontext.js line 191</li>
+					<li>comment out in BreezeController.cs line 41-45</li>
+					<li>comment out in CodeCamperRepositiory line 39-43</li>
+					<li>comment out in datacontext.js line 19</li>
+					<li>comment out in model.js line 73</li>
+					<li>comment out in model.js line 51</li>
+					<li>THAT one did it... it's the nullo stuff... </li>
+					<li>start backing in other stuff...
+						<ul>
+							<li>Put repository.contact.js in index.html</li>
+							<li>Put prime in datacontext.js line 107</li>
+							<li>Put personEntityName in datacontext.js line 133</li>
+							<li>Put intercetpPropertyChange in datacontext.js line 191</li>
+							<li>put in BreezeController.cs line 41-45</li>
+							<li>put in CodeCamperRepositiory line 39-43</li>
+							<li>put in datacontext.js line 19</li>
+							<li>put in model.js line 73</li>
+						</ul>
+					</li>
+					<li>So... I don't understand the nullo pattern... so leave it out for now</li>
+				</ul>
+			</li>
+			<li>OK... we now have what I think I should beable to create the dropdown for contact...
+				<ul>
+					<li>Put in the dropdown select pattern in ticketdetails.html and woops... nothing</li>
+					<li>Started to look at ticketdetails.js found problems
+						<ul>
+							<li>line 23/24 need vm.contacts array NOT vm.rooms, this explains 'enitityRooms' not found</li>
+							<li>line 94 initLookups.. had this really messed up, cleaned it up</li>
+							<li>FORGET to uncomment contacts in datacontext prime method... woops</li>
+							<li>After a browser local cache delete and refresh... shit works</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>So I'm going to do abit of UI trimming
+				<ul>
+					<li>in dashboard.html take out all but tickets and wip</li>
+					<li>in config.route.js take out navs</li>
+				</ul>
+			</li>
+			<li>Deploy website... test  <a target="_blank" href="http://hwp.azurewebsites.net/">http://hwp.azurewebsites.net/</a></li>
+			<li>Visual Studio Team Checkin -> Branch: AzureDeployDbSetuFromMilestone3 -> Milestone 6: Template Task - Commit 3
+				<ul>
+					<li>Team Explorer -> Changes -> Untraced Files (5) click Add All</li>
+					<li>Included Changes (80)</li>
+					<li>Commit Message -> Milestone 6: Template Task - Commit 3</li>
+					<li>Click Commit</li>
+					<li>Milestone 6: Template Task - Commit 3 - CommitID: a9027979690e414b2eb58f9397e11edee4e8dfbd</li>
+				</ul>
+			</li>
+			<li>Well... I need to create some kind of loader app to transfer the old data.  Going to to that in a new project as it will probably be a one-time or back-up type thing</li>
+			<li>I thought I was going to have to setup another project to do the import, but found out I could switch to the local db and do the bulk insert</li>
+			<li>So in <a target="_blank" href="../02_references/arc/HWPC_DB_20140223">02_references/arc/HWPC_DB_20140223</a> I put the old tab files and sql loads</li>
+			<li>Switch Web.config back to local</li>
+			<li>PM> update-database -ConfigurationTypeName CC.Web.DataMigrations.Configuration -Verbose</li>
+			<li>Now we back local and working... with the imported table</li>
+			<li>Import from Old DB
+				<ul>
+					<li>Pull files customers_db.txt, serviceTypes_db.txt, taxRate_db.txt, tickets_db.txt and zipcode_db.txt</li>
+					<li>in tickets_db_debug.txt Hack money to int with regex \t\$ with \t so money will import as int</li>
+					<li>Create HWPC_CreateAndLoadTicketDB_FromFile_SQLQuery12.sql</li>
+					<li>Create the required tables, (dbo.TestTicket, dbo.Customers, dbo.ServiceTypes)</li>
+					<li>keep hacking on .sql till we can drop and create clean</li>
+					<li>OK.. the file <a target="_blank" href="../02_references/arc/HWPC_DB_20140223/HWPC_CreateAndLoad_FromFiles_SQLQuery999.sql">02_references/arc/HWPC_DB_20140223/HWPC_CreateAndLoad_FromFiles_SQLQuery999.sql</a> can create and suck in everything I think I need</li>
+					<li>Now lets attach this to UI</li>
+				</ul>
+			</li>
+			<li>Attach new tables to UI
+				<ul>
+					<li>I'm going to use repository.hwpcticket.js and repository.hwpccontact.js but point them to HWPCTicket HWPCCustomer</li>
+					<li>Build models for HWPCTicket, HWPCCustomer, HWPCServiceType based on <a target="_blank" href="../02_references/arc/HWPC_DB_20140223/HWPC_CreateAndLoad_FromFiles_SQLQuery999.sql">02_references/arc/HWPC_DB_20140223/HWPC_CreateAndLoad_FromFiles_SQLQuery999.sql</a></li>
+					<li>OK... need to create HWPCTicketConfiguration to create the ContactId, SerLocId, BillToId, SerTypeId relationships</li>
+					<li>Update CodeCamperDbContext</li>
+					<li>Update CodeCamperRepository</li>
+					<li>Update BreezeController</li>
+				</ul>
+			</li>
+			<li>Run and test
+				<ul>
+					<li><a target="_blank" href="http://localhost:45095/breeze/breeze/hwpccustomers">http://localhost:45095/breeze/breeze/hwpccustomers</a></li>
+					<li><a target="_blank" href="http://localhost:45095/breeze/breeze/hwpctickets">http://localhost:45095/breeze/breeze/hwpctickets</a></li>
+					<li><a target="_blank" href="http://localhost:45095/breeze/breeze/hwpcservicetypes">http://localhost:45095/breeze/breeze/hwpcservicetypes</a></li>
+				</ul>
+			</li>
+			<li>OK... the GUI app part
+				<ul>
+					<li>Create repositiory.hwpcticket.js, add to index.html</li>
+					<li>Add hwpcticket to model.js
+						<ul>
+							<li>line 26: add to entityNames</li>
+							<li>line 43: configureMetadataStore registerHWPCTicket</li>
+							<li>line 129: Create registerHWPCTicket function</li>
+						</ul>
+					</li>
+					<li>Add hwpcticket to datacontext.js
+						<ul>
+							<li>line 19: add repoNames 'hwpcticket'</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Got really lost... attempted to create hwpcticket based on ticket.... had some success but ran into issues I forget as I was getting very frustrated... I chased a problem down to Scripts/angular.breeze.storagewip.js line 69 where he was keying on sessions and attendees for isLoaded.... also line 99.... at this point I !_@)#$#()(*) so decided to shit-can Hot Towel</li>
+			<li>I should have snapped a commit when things were partially working... but didn't... so I'm going to leave them as is... switch to something to get HWPC up... come back later.  MEGA DEPRESSED with this... the danger of OPS (other peoples shit)</li>
+			<li>Swithcing to project from scratch... <a target="_blank" href="index3.html">index3.html</a></li>
 			<li>Last Step</li>
 		</ol>
-	</li>
 	</li>
 		<hr/><li><b class="llstodo" >Milestone 6: Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
 		<ol>Steps
 			<li>Last Step</li>
-			<li>Setup EF Initializer http://www.entityframeworktutorial.net/code-first/database-initialization-strategy-in-code-first.aspx</li>
+			<li>Setup EF Initializer <a target="_blank" href="http://www.entityframeworktutorial.net/code-first/database-initialization-strategy-in-code-first.aspx">DB Init Strategy</a></li>
+			<li>This was good <a target="_blank" href="http://blog.oneunicorn.com/2013/05/28/database-initializer-and-migrations-seed-methods/">Db Init and Migrations seed methods</a>
+			<li>Also this <a target="_blank" href="http://msdn.microsoft.com/en-us/data/jj591621.aspx">Code First Migrations</a></li>
+			<li>So lets go put in all the SetInitializer types in CodeCamperDbContext.cs and comment out the ones we don't want.</li>
+			
 		</ol>
 	</li>
 	<hr/><hr/>THE END<hr/><hr/>
@@ -308,6 +565,19 @@
 	</li>
 	-->
 </ol>
+<!--
+http://www.creativebloq.com/responsive-web-design/make-your-website-printable-css-3132929
 
+netstamp.co
+netstamp.us
+netstamp.me
+netprint.me
+cloudpost.us
+cloudstamp.co
+cloudstamp.org
+cloudstamp.me
+cloudstamp.us
+apple1stamp(variations)
+-->
 </body>
 </html>

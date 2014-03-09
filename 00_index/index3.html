@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="../02_references/img/favicon.ico">
+	<title>HWPC Bug Ticket Tracking</title>
+	<!--
+	<link rel="stylesheet" href="../02_references/css/llsBinder.css">
+	<script type="text/javascript" src="../02_references/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../02_references/js/llsBinderDividers.js"></script>
+	-->
+</head>
+<!--
+<body onload="llsBinderDividers()">
+-->
+<body>
+<a href="http://christrees.com" target="_blank">http://christrees.com</a> christrees@gmail.com
+<h1>Intent:</h1> Basic HWPC Bug Ticket Tracking Project Template. ==> Go MS - index3.html <== I was attempting to load.
+<h1>Test:</h1> Site at <a href="http://hwpc.azurewebsites.net" target="_blank">http://hwpc.azurewebsites.net</a>
+<h1>Steps:</h1>
+<ol>
+	<hr/><li><b class="llsdone" >Milestone 1: Setup</b> - Goal: Basic HWPC setup- Status: Done<hr/>Setup
+			<a href="https://hwpc.visualstudio.com/DefaultCollection/HWPCBug" target="_blank">https://hwpc.visualstudio.com/DefaultCollection/HWPCBug</a>, 
+			<a  target="_blank" href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/deployments">https://manage.windowsazure.com</a>, and
+			<a href="http://hwpc.azurewebsites.net" target="_blank">http://hwpc.azurewebsites.net</a>
+			</b>
+		<hr/>
+		<ol>Source Setup
+			<li>Create HWPCBug project</li>
+			<li>cat8deve@live.com - Xxxx2Yyyyyy (owner)</li>
+			<li>cat8dev@live.com - ?? (dev on CAT_MSWin8Enterprise)</li>
+			<li>New checkin - Add all untracked files, Commit 'Initial Commit - MVC 5 out of box', Sync</li>
+		</ol>
+		<ol>Azure Setup
+			<li>Site at <a href="http://hwpc.azurewebsites.net" target="_blank">http://hwpc.azurewebsites.net</a></li>
+			<li>Control at <a target="_blank" href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> under christrees@live.com</li>
+			<li>Have azure pull from VSOnline <a href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/deployments">Deploy from Source</a></li>
+			<li>On <a href="https://hwpc.visualstudio.com" target="_blank">https://hwpc.visualstudio.com</a> I had to go to Control panel -> Default Collection -> HWPCBug | Security Tab | Member of | and add Build Admin, Contrib, Project Admin and Project Valid Users</li>
+			<li>Then make a change in source and do commit 'Add Ticket.cs to kick off build to Azure', which it did and you can see the build in hwpc.vsol under <a href="https://hwpc.visualstudio.com/DefaultCollection/HWPC.cc/HWPC.cc%20Team/_build#_a=deployed" target="_blank">Build - Deployed</a></li>
+			<li>This deployment did not trigger a db change and the old db was for some other code, so I disable the db link <a href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/WebsiteExtension/Website/hwp/linkedResources" target="_blank">at this url</a> and also deleted the db <a href="https://manage.windowsazure.com/@christreeslive.onmicrosoft.com#Workspaces/SqlAzureExtension/Databases" target="_blank">at this url</a></li>
+		</ol>
+		<ol>Test Setup
+			<li>ToDo</li>
+		</ol>
+	</li>
+	<hr/><li><b class="llstodo" >Milestone 2: Ticket</b> - Goal: Get Tickets list to display - Status: TODO<hr/>Just get a basic site up that hits the old db.
+		<ol>Steps
+			<li>New ASP.NET solution WebSite.  Commit 'Initial Commit - MVC 5 out of box', Sync</li>
+			<li>For Security stuff... Follow along with <a target="_blank" href="http://pluralsight.com/training/courses/TableOfContents?courseName=aspdotnet-mvc5-fundamentals&highlight=scott-allen_aspdotnet-mvc5-fundamentals-m2-katana*8#aspdotnet-mvc5-fundamentals-m2-katana">ASP.NET MVC 5 Fundamentals</a> Identity and Security - Authorize - New Controller: This tells about how to controll Auth in controllers</li>
+			<li>For General  Follow along with <a target="_blank" href="http://pluralsight.com/training/courses/TableOfContents?courseName=one-aspdotnet-from-scratch&highlight=">One ASP.NET From Scratch</a> 
+				<ul>
+					<li>MVC - Create default out-of-box</li>
+					<li>Controller - Shows basic controller... how to hookup</li>
+					<li>View Intro - stuff</li>
+					<li>View - Start to mod the display
+						<ul>
+							<li>in Views/Shared/_Layout.cshtml*
+								<ul>
+									<li>line 6 change to HWPC Bug</li>
+									<li>line 9 change to HWPC Bug</li>
+									<li>line 36 change to @DateTime.Now.Year - Hawkeye West Pest Control</li>
+								</ul>
+							</li>
+							<li>in Views/Home/Contact.cshtml... do a lot of display work...</li>
+						</ul>
+					</li>
+					<li>Model Intro - stuff</li>
+					<li>Model - Start to structure HWPC data
+						<ul>
+							<li>Created models... then got lost in code... got things working...</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>about 10hrs of code messing with MVC 5 / EF / Razor stuff... got prototype going</li>
+			<li>Visual Studio Team Checkin -> Milestone 2: Ticket
+				<ul>
+					<li>Team Explorer -> Changes -> Untraced Files (6) click Add All</li>
+					<li>Included Changes (38)</li>
+					<li>Commit Message -> Milestone 2: Ticket</li>
+					<li>Click Commit</li>
+					<li>Sync</li>
+					<li>Milestone 2: Ticket - CommitID: c9960ab164c8c1bf28ec3209a6cf48b1f54003e6</li>
+				</ul>
+			</li>
+			<li>Deploy using <a target="_blank" href="../02_references/hwpc.azurewebsites.net_1_.PublishSettings">hwpc.azurewebsites.net_1_.PublishSettings</a> it deployed but failed to run... thinking it was the db setup</li>
+			<li>This runs locally... again, thinking it's the db setup... so I'll setup this local to use local SQL...</li>
+			<li>So... mod Web.config to point to a sql db</li>
+			<li>remove the initialize from Global.asax</li>
+			<li>In HwpcDbInitializer.cs use DropCreateDatabaseIfModelChanges</li>
+			<li>Create a load tab file for HwpcRoute C:\Users\Cat\Source\Repos\HWPC_DB_20140223\route_db.txt</li>
+			<li>Create new SQL file C:\Users\Cat\Source\Repos\HWPC_DB_20140223\Hwpc_MVC5_CreateAndLoad_FromFiles_SQLQuery9.sql</li>
+			<li>Go to <a target="_blank" href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> under christrees@live.com</li>
+			<li>Quick create HwpcDBContext Db</li>
+			<li>Unlink hwpcbugticketdb from hwpc website, Link HwpcDBContext (cathwpc - Time2Invest)</li>
+			<li>Update the Web.Config connection string to point to correct online db</li>
+			<li>... still getting error... I have to move so need to 'suspend'</li>
+			<li>... ok... after lots of hacking over a few days... basically need to scorched earth azure... </li>
+			<li>I also hacked around with CSS and Auth stuff to get basic auth going</li>
+			<li>Deploy Online Site at <a href="http://hwpc.azurewebsites.net" target="_blank">http://hwpc.azurewebsites.net</a>
+				<ul>
+					<li>Go to <a target="_blank" href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> under christrees@live.com</li>
+					<li>Nuke hwpc Site and HwpcDBContext SQL</li>
+					<li>Right Click on HwpcDBContext in MS SQL Management Studio -> Tasks -> Deploy Database to SQL Azure</li>
+					<li>Follow Wizard (connect to Azure cathwpc - Time2Invest)</li>
+					<li>Go to VS and Deploy Website to hwpc</li>
+				</ul>
+			</li>
+			<li>That works... snap a version</li>
+			<li>Visual Studio Team Checkin -> Milestone 2: Ticket Deploy to hwpc
+				<ul>
+					<li>Team Explorer -> Changes -> Untraced Files (0) click Add All</li>
+					<li>Included Changes (23)</li>
+					<li>Commit Message -> Milestone 2: Ticket Deploy to hwpc</li>
+					<li>Click Commit</li>
+					<li>Sync</li>
+					<li>Milestone 2: Ticket Deploy to hwpc - CommitID: 57abcab0a47dc9bc15094b2d94ab966a2ae36e17</li>
+				</ul>
+			</li>
+			<li>Now work on CSS to get printing to work</li>
+			<li>Get icon stuff going again... shortcut icon for desktop metro.. publish</li>
+			<li>New Commit</li>
+			<li>Visual Studio Team Checkin -> Milestone 2: Ticket CSS Stuff
+				<ul>
+					<li>Team Explorer -> Changes -> Untraced Files (0) click Add All</li>
+					<li>Included Changes (23)</li>
+					<li>Commit Message -> Milestone 2: Ticket CSS Stuff</li>
+					<li>Click Commit</li>
+					<li>Sync</li>
+					<li>Milestone 2: Ticket Deploy to hwpc - CommitID: 039f55608f17236c93ea0f8fbfb113f3c74e681e</li>
+				</ul>
+			</li>
+			<li>Git this document up on catmini
+				<ul>
+					<li>cd /Users/cat/Sites/11_CAT_Services/CAT_HWPC_Bug/</li>
+					<li>git add .</li>
+					<li>git commit -m "Index3 first Commit"</li>
+					<li>git push -u origin master</li>
+					<li>Verify push <a href="https://github.com/christrees/CAT_HWPC_Bug"  target="_blank">https://github.com/christrees/CAT_HWPC_Bug</a></li>
+				</ul>
+			</li>
+			<li>Post on cat9.com
+				<ul>
+					<li>ssh cat@cat9.com</li>
+					<li>cd /home3/cat/public_html/11_CAT_Services/CAT_HWPC_Bug</li>
+					<li>git pull</li>
+					<li>Verify <a target="_blank" href="http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index3.html">http://cat9.com/11_CAT_Services/CAT_HWPC_Bug/00_index/index3.html</a></li>
+				</ul>
+			</li>
+		</ol>
+	</li>
+		<hr/><hr/>THE END<hr/><hr/>
+	<!-- 
+		--
+		-- CAT_Tempates are below this marker
+		--
+	<hr/><li><b class="llstodo" >Milestone Template Task</b> - Goal: shorttext - Status: TODO<hr/>Some longer description of what this task is all about before I get into the steps.
+		<ol>Steps
+			<li>Last Step</li>
+		</ol>
+	</li>
+	-->
+</ol>
+
+<ol>CAT NOTES:
+	<li>http://localhost:2211/QBSDK13.0/doc/html/GettingStarted.html</li> 
+	<li>https://developer.intuit.com/docs/0250_qb/0040_get_building</li>
+	<li>https://developer.intuit.com/docs/0250_qb/0020_get_set_up/sdk_downloads</li>
+	<li>http://i861.photobucket.com/albums/ab179/mittou/34/W7X94_02.jpg</li>
+	<li>http://www.bootply.com/103783</li>
+	<li>http://www.sitepoint.com/create-invoice-twitter-bootstrap-part-1/</li>
+	<li>http://www.sitepoint.com/create-invoice-twitter-bootstrap-part-2/</li>
+	<li>http://www.codeproject.com/Tips/686270/Generate-Dynamic-Autocomplete-Feature-to-a-Textbox</li>
+	<li>http://www.codeproject.com/Tips/686270/Generate-Dynamic-Autocomplete-Feature-to-a-Textbox</li>
+</ol>
+
+</body>
+</html>

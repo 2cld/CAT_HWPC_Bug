@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@section scripts
+{
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<div class="row">
+    <div class="col-md-4">
+        <form class="form-horizontal" method="post">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="name">Name</label>
+                    <div class="controls">
+                        <input type="text" class="input-medium" id="name" name="name" data-val="true" data-val-required="*">
+                        <span class="field-validation-valid" data-valmsg-for="name" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="email">Email</label>
+                    <div class="controls">
+                        <input type="text" class="input-medium" id="email" name="email" data-val="true" data-val-required="*" data-val-email="Not Valid">
+                        <span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="website">Website</label>
+                    <div class="controls">
+                        <input type="text" class="input-medium" id="website" name="website" data-val="true" data-val-required="*">
+                        <span class="field-validation-valid" data-valmsg-for="website" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="comment">Message</label>
+                    <div class="controls">
+                        <textarea class="input-medium" id="comment" rows="3" name="comment" data-val="true" data-val-required="*"></textarea>
+                        <span class="field-validation-valid" data-valmsg-for="comment" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn">Send</button>
+                    @if (ViewBag.MailSent != null && ViewBag.MailSent)
+                    {
+                        <div>Mail Sent!</div>
+                    }
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+    <div class="col-md-8">
+        <iframe width="425"
+                height="350"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=1795+Park+Circle,+Clarion,+IA&amp;aq=0&amp;oq=1795+Park+Circle,+Clari&amp;sll=42.519269,-92.455135&amp;sspn=0.21686,0.248222&amp;ie=UTF8&amp;hq=&amp;hnear=Park+Cir,+Clarion,+Wright,+Iowa+50525&amp;t=m&amp;z=14&amp;iwloc=A&amp;ll=42.790916,-93.684012&amp;output=embed"
+                ></iframe>
+        <br /><small>
+            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=1795+Park+Circle,+Clarion,+IA&amp;aq=0&amp;oq=1795+Park+Circle,+Clari&amp;sll=42.519269,-92.455135&amp;sspn=0.21686,0.248222&amp;ie=UTF8&amp;hq=&amp;hnear=Park+Cir,+Clarion,+Wright,+Iowa+50525&amp;t=m&amp;z=14&amp;iwloc=A&amp;ll=42.790916,-93.684012"
+               style="color:#0000FF;
+               text-align:left">View Larger Map</a>
+        </small>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <address>
+            1795 Park Circle<br />
+            Clarion, IA 50525<br />
+            <abbr title="Phone">P:</abbr>
+            515.532.3499
+        </address>
+    </div>
+    <div class="col-md-6">
+        <address>
+            <strong>Lic. #</strong> <span>02318-000</span><br />
+            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+            <strong>Information:</strong> <a href="mailto:Info@example.com">Info@example.com</a>
+        </address>
+    </div>
+</div>
+
+

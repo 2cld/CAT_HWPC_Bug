@@ -1,0 +1,21 @@
+﻿<h3>New Ticket</h3>
+<form name="newTicketForm" novalidate data-ng-submit="save()">
+    <fieldset>
+        <div>
+            <label for="service">Service</label>
+            <input name="service" type="text" data-ng-model="newTicket.service" required data-ng-minlength="5" />
+            <span class="error" data-ng-show="newTicketForm.service.$error.required">*</span>
+            <span class="error" data-ng-show="newTicketForm.service.$error.minlength">Minimum 5 Characters</span>
+        </div>
+        <div>
+            <label for="note">Note</label>
+            <textarea name="note" rows="5" cols="30" data-ng-model="newTicket.note" required data-ng-minlength="15" />
+            <span class="error" data-ng-show="newTicketForm.note.$error.required">*</span>
+            <span class="error" data-ng-show="newTicketForm.note.$error.minlength">Minimum 15 Characters</span>
+        </div>
+        <div>
+            <input type="submit" class="btn" value="Save" data-ng-disabled="newTicketForm.$invalid" />
+            <a href="#/" class="btn">Cancel</a>
+        </div>
+    </fieldset>
+</form>

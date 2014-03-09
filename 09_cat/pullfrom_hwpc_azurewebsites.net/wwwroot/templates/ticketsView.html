@@ -1,0 +1,106 @@
+﻿<div>
+    <div class="ticket-header">
+        <div>Ticket Count: {{ data.tickets.length }}</div>
+    </div>
+    <div>
+        <a href="#/newticket"><div class="btn btn-lg">Add New Ticket</div></a>
+    </div>
+    <div class="progress progress-striped active" data-ng-show="isBusy">
+        <div class="bar" style="width: 100%;"></div>
+    </div>
+    <div class="ticket-list">
+        <div data-ng-repeat="i in data.tickets">
+            <div class="ticket-tools row">
+                <div class="col-md-8">
+                    <a data-ng-href="#/ticket/{{ i.id }}">{{ i.service }}</a>
+                </div>
+                <div class="date col-md-4">
+                    {{ i.serviceDate | date }}
+                </div>
+            </div>
+            <div class="ticket-print row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="ticket-icon col-md-3"><img src="templates/Hawk.jpg" alt="Alternate Text" /><br />Ticket ID: {{i.id}}</div>
+                        <div class="ticket-client col-md-9">
+                            <div class="ticket-info row">
+                                <div class="ticket-hwpc-title col-md-12 text-center">
+                                    <h3>Hawkeye West Pest Control</h3>
+                                </div>
+                                <div class="ticket-hwpc-banner col-md-12">
+                                    <div class="row">
+                                        <small class="col-md-4 text-left">
+                                            1795 Park Circle<br>
+                                            Clarion, Iowa 50525
+                                        </small>
+                                        <small class="col-md-4 text-center">Lic # 02318-000</small>
+                                        <small class="col-md-4 text-right">
+                                            515-532-3499<br>
+                                            800-467-5231
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="ticket-client-service col-md-6">
+                                    Service Location
+                                    <div class="row">
+                                        <div class="col-md-12">Name of Location</div>
+                                        <div class="col-md-12">Address of Location</div>
+                                        <div class="col-md-12">City of Location</div>
+                                    </div>
+                                </div>
+                                <div class="ticket-client-billing col-md-6">
+                                    Bill To Location
+                                    <div class="row">
+                                        <div class="col-md-12">Name of Location</div>
+                                        <div class="col-md-12">Address of Location</div>
+                                        <div class="col-md-12">City of Location</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ticket-serviceline col-md-12">{{ i.service }}</div>
+                        <div class="ticket-serviceline col-md-12">Type of Service:</div>
+                        <div class="ticket-serviceline col-md-12">Type of Service:</div>
+                    </div>
+                    <div class="row">
+                        <div class="ticket-noteline col-md-12">{{ i.note }}</div>
+                        <div class="ticket-noteline col-md-12">Note:</div>
+                        <div class="ticket-noteline col-md-12">Note:</div>
+                        <div class="ticket-noteline col-md-12">Note:</div>
+                        <div class="ticket-noteline col-md-12">Note:</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">Time Date</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">Route:</div>
+                        <div class="col-md-8">123</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">Contact:</div>
+                        <div class="col-md-8">George Washington Carver</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">Phone:</div>
+                        <div class="col-md-8">515.999.0000</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">Service Fee:</div>
+                        <div class="col-md-6">$0.00</div>
+                        <div class="col-md-6"> ??% Tax:</div>
+                        <div class="col-md-6">$0.00</div>
+                        <div class="col-md-6">Total Due:</div>
+                        <div class="col-md-6">$00.00</div>
+                    </div>
+                    <div class="ticket-acct-status row">
+                        <div class="col-md-12"> STATUS:  PAID - CHARGE</div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>

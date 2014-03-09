@@ -1,0 +1,165 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* ticket fixups */
+h1,
+h2,
+h3 {
+    margin-top: 5px;
+    margin-bottom: 1px;
+}
+
+/* ticket display */
+.ticket-list {
+    border: 0px solid #ff0000;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-header {
+    border: 0px solid green;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-print {
+    border: 1px solid yellow;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-info {
+    border-bottom: 1px solid black;
+    margin: 0px;
+    padding: 3px;
+}
+
+.ticket-icon {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-client {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-hwpc-title {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-hwpc-banner {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-client-service {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-serviceline {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-noteline {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-acct {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-acct-timedate {
+    border: 1px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-acct-route {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-acct-contact {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-acct-phone {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-acct-invoice {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-acct-status {
+    border: 0px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-tools {
+    border: 0px solid gray;
+    margin: 10px;
+    padding: 10px;
+}

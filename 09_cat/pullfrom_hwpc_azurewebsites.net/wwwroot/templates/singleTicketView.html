@@ -1,0 +1,38 @@
+﻿<a href="#/" class="btn">Back</a>
+<div class="tickets">
+    <div class="ticket row">
+        <div class="title span10">
+            {{ ticket.title }}
+        </div>
+        <div class="date span2">
+            {{ ticket.serviceDate | date:"medium" }}
+        </div>
+        <div class="contents span12">
+            {{ ticket.note }}
+        </div>
+        <div class="replies span12">
+            <div class="reply" data-ng-repeat="m in ticket.memos">
+                <div class="created pull-right">
+                    {{ m.created | date:"medium" }}
+                </div>
+                <div class="content">
+                    {{ m.body }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3>Add Memo</h3>
+    <form name="newMemoForm" novalidate data-ng-submit="addMemo()">
+        <fieldset>
+            <div>
+                <label for="body">Body</label>
+                <textarea name="body" rows="5" cols="30" data-ng-model="newMemo.body" required data-ng-minlength="15" />
+                <span class="error" data-ng-show="newMemoForm.body.$error.required">*</span>
+                <span class="error" data-ng-show="newMemoForm.body.$error.minlength">Minimum 15 Characters</span>
+            </div>
+            <div>
+                <input type="submit" class="btn" value="Save" data-ng-disabled="newMemoForm.$invalid" />
+            </div>
+        </fieldset>
+    </form>
+</div>
